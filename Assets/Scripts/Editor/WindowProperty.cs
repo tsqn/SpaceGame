@@ -7,11 +7,4 @@
 
         public T Model { get; set; }
     }
-
-    public enum ActionOnUpdate
-    {
-        None,
-        Add,
-        Delete
-    }
 }

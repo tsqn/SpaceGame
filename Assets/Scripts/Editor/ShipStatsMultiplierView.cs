@@ -45,21 +45,21 @@ namespace Editor
             }
         }
 
-        protected override void Show(ShipStatsMultipliers stats)
+        protected override void Show(ShipStatsMultipliers model)
         {
             EditorGUILayout.BeginVertical();
 
-            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Type), stats.Type);
+            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Type), model.Type);
 
-            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Health), stats.Health.ToString());
+            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Health), model.Health);
 
-            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.ShootSpeed), stats.ShootSpeed.ToString());
+            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.ShootSpeed), model.ShootSpeed);
 
-            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.MoveSpeed), stats.MoveSpeed.ToString());
+            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.MoveSpeed), model.MoveSpeed);
 
-            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Mobility), stats.Mobility.ToString());
+            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Mobility), model.Mobility);
 
-            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.WeaponDamage), stats.WeaponDamage.ToString());
+            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.WeaponDamage), model.WeaponDamage);
 
             EditorGUILayout.EndVertical();
         }

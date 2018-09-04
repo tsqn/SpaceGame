@@ -42,19 +42,19 @@ namespace Editor
             }
         }
 
-        protected override void Show(BaseShipStats stats)
+        protected override void Show(BaseShipStats model)
         {
             EditorGUILayout.BeginVertical();
 
-            EditorCommon.ShowLine(nameof(BaseShipStats.Type), stats.Type);
+            EditorCommon.ShowLine(nameof(BaseShipStats.Type), model.Type);
 
-            EditorCommon.ShowLine(nameof(BaseShipStats.Health), stats.Health.ToString());
+            EditorCommon.ShowLine(nameof(BaseShipStats.Health), model.Health);
 
-            EditorCommon.ShowLine(nameof(BaseShipStats.ShootSpeed), stats.ShootSpeed.ToString());
+            EditorCommon.ShowLine(nameof(BaseShipStats.ShootSpeed), model.ShootSpeed);
 
-            EditorCommon.ShowLine(nameof(BaseShipStats.MoveSpeed), stats.MoveSpeed.ToString());
+            EditorCommon.ShowLine(nameof(BaseShipStats.MoveSpeed), model.MoveSpeed);
 
-            EditorCommon.ShowLine(nameof(BaseShipStats.Mobility), stats.Mobility.ToString());
+            EditorCommon.ShowLine(nameof(BaseShipStats.Mobility), model.Mobility);
 
             EditorGUILayout.EndVertical();
         }

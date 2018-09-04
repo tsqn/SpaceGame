@@ -31,9 +31,9 @@ namespace Editor
             GUILayout.Box("Base view Title");
         }
 
-        protected virtual void Show(T propertyModel)
+        protected virtual void Show(T model)
         {
-            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Type), propertyModel.ToString());
+            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Type), model.ToString());
         }
 
         protected void ShowProperty(WindowProperty<T> property)
