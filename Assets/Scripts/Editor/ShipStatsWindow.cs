@@ -33,14 +33,6 @@
             _styleChangerWindow.minSize = new Vector2(300, 80);
         }
 
-        private void OnEnable()
-        {
-            InitializeData();
-            BaseStatsView = new BaseShipStatsView(ShipStats.BaseShipStats);
-
-            ShipMultipliersView = new ShipStatsMultiplierView(ShipStats.ShipStatsMultipliers);
-        }
-
         private void InitializeData()
         {
             if (ShipStats == null)
@@ -71,11 +63,17 @@
                 };
         }
 
+        private void OnEnable()
+        {
+            InitializeData();
+            BaseStatsView = new BaseShipStatsView(ShipStats.BaseShipStats);
+            ShipMultipliersView = new ShipStatsMultiplierView(ShipStats.ShipStatsMultipliers);
+        }
+
         private void OnGUI()
         {
-            BaseStatsView.ShowBaseShipStats();
+            BaseStatsView.Show();
             ShipMultipliersView.Show();
-            Debug.Log($"COUNT {ShipStats.ShipStatsMultipliers.Count}");
         }
     }
 }

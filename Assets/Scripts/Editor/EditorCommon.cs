@@ -13,6 +13,5 @@ namespace Editor
             EditorGUILayout.TextField(valueText);
             EditorGUILayout.EndHorizontal();
         }
-
     }
 }
