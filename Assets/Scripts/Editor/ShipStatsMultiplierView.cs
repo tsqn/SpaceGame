@@ -49,17 +49,17 @@ namespace Editor
         {
             EditorGUILayout.BeginVertical();
 
-            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Type), model.Type);
+            model.Type = EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Type), model.Type);
 
-            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Health), model.Health);
+            model.Health = EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Health), model.Health);
 
-            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.ShootSpeed), model.ShootSpeed);
+            model.ShootSpeed = EditorCommon.ShowLine(nameof(ShipStatsMultipliers.ShootSpeed), model.ShootSpeed);
 
-            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.MoveSpeed), model.MoveSpeed);
+            model.MoveSpeed = EditorCommon.ShowLine(nameof(ShipStatsMultipliers.MoveSpeed), model.MoveSpeed);
 
-            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Mobility), model.Mobility);
+            model.Mobility = EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Mobility), model.Mobility);
 
-            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.WeaponDamage), model.WeaponDamage);
+            model.WeaponDamage = EditorCommon.ShowLine(nameof(ShipStatsMultipliers.WeaponDamage), model.WeaponDamage);
 
             EditorGUILayout.EndVertical();
         }

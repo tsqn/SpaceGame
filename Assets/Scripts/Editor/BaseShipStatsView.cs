@@ -46,15 +46,15 @@ namespace Editor
         {
             EditorGUILayout.BeginVertical();
 
-            EditorCommon.ShowLine(nameof(BaseShipStats.Type), model.Type);
+            model.Type = EditorCommon.ShowLine(nameof(BaseShipStats.Type), model.Type);
 
-            EditorCommon.ShowLine(nameof(BaseShipStats.Health), model.Health);
+            model.Health = EditorCommon.ShowLine(nameof(BaseShipStats.Health), model.Health);
 
-            EditorCommon.ShowLine(nameof(BaseShipStats.ShootSpeed), model.ShootSpeed);
+            model.ShootSpeed = EditorCommon.ShowLine(nameof(BaseShipStats.ShootSpeed), model.ShootSpeed);
 
-            EditorCommon.ShowLine(nameof(BaseShipStats.MoveSpeed), model.MoveSpeed);
+            model.MoveSpeed = EditorCommon.ShowLine(nameof(BaseShipStats.MoveSpeed), model.MoveSpeed);
 
-            EditorCommon.ShowLine(nameof(BaseShipStats.Mobility), model.Mobility);
+            model.Mobility = EditorCommon.ShowLine(nameof(BaseShipStats.Mobility), model.Mobility);
 
             EditorGUILayout.EndVertical();
         }

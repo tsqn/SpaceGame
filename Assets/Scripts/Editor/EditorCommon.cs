@@ -8,14 +8,18 @@ namespace Editor
 
     public class EditorCommon
     {
-        public static void ShowLine(string labelText, string value)
+        public static string ShowLine(string labelText, string value)
         {
-            ShowInput(labelText, () => EditorGUILayout.TextField(value));
+            var result = value;
+            ShowInput(labelText, () => result = EditorGUILayout.TextField(value));
+            return result;
         }
 
-        public static void ShowLine(string labelText, float value)
+        public static float ShowLine(string labelText, float value)
         {
-            ShowInput(labelText, () => EditorGUILayout.FloatField(value));
+            var result = value;
+            ShowInput(labelText, () => result = EditorGUILayout.FloatField(value));
+            return result;
         }
 
         private static void ShowInput(string labelText, Action guiLayoutAction)

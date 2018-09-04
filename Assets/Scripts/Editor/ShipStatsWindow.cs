@@ -8,7 +8,6 @@
 
     using UnityEngine;
 
-    [CustomEditor(typeof(ShipStats))]
     public class ShipStatsWindow : EditorWindow
     {
         private static ShipStatsWindow _styleChangerWindow;
@@ -33,39 +32,29 @@
             _styleChangerWindow.minSize = new Vector2(300, 80);
         }
 
-        private void InitializeData()
+        private void Load()
         {
-            if (ShipStats == null)
-                ShipStats = new ShipStats
-                {
-                    BaseShipStats = new List<BaseShipStats>
-                    {
-                        new BaseShipStats
-                        {
-                            Type = "TYPE 1"
-                        },
-                        new BaseShipStats
-                        {
-                            Type = "TYPE 2"
-                        }
-                    },
-                    ShipStatsMultipliers = new List<ShipStatsMultipliers>
-                    {
-                        new ShipStatsMultipliers
-                        {
-                            Type = "TYPE M 1"
-                        },
-                        new ShipStatsMultipliers
-                        {
-                            Type = "TYPE M 2"
-                        }
-                    }
-                };
+            ShipStats = AssetDatabase.LoadAssetAtPath<ShipStats>("Assets/Resources/Data/ShipStatsData.asset");
+
+            if (ShipStats != null)
+            {
+                if (ShipStats.BaseShipStats == null)
+                    ShipStats.BaseShipStats = new List<BaseShipStats>();
+
+                if (ShipStats.ShipStatsMultipliers == null)
+                    ShipStats.ShipStatsMultipliers = new List<ShipStatsMultipliers>();
+
+                return;
+            }
+
+            ShipStats = CreateInstance<ShipStats>();
+            ShipStats.BaseShipStats = new List<BaseShipStats>();
+            ShipStats.ShipStatsMultipliers = new List<ShipStatsMultipliers>();
         }
 
         private void OnEnable()
         {
-            InitializeData();
+            Load();
             BaseStatsView = new BaseShipStatsView(ShipStats.BaseShipStats);
             ShipMultipliersView = new ShipStatsMultiplierView(ShipStats.ShipStatsMultipliers);
         }
@@ -74,6 +63,17 @@
         {
             BaseStatsView.Show();
             ShipMultipliersView.Show();
+        }
+
+        private void OnLostFocus()
+        {
+            Save();
+        }
+
+        private void Save()
+        {
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
         }
     }
 }

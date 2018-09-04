@@ -4,8 +4,8 @@
 
     using UnityEngine;
 
-//    [CreateAssetMenu(fileName = "ShipStatsData", menuName = "SpaceGame/ShipStatsData")]
-    public class ShipStats
+    [CreateAssetMenu(fileName = "ShipStatsData", menuName = "SpaceGame/ShipStatsData")]
+    public class ShipStats : ScriptableObject
     {
         [SerializeField]
         public List<BaseShipStats> BaseShipStats;
