@@ -206,6 +206,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4261365666661678}
+  - component: {fileID: 114550198333404360}
   m_Layer: 0
   m_Name: Enemy-1-4
   m_TagString: Untagged
@@ -318,8 +319,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1934709087002358}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 6}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.8176522, y: -0.046703815, z: 6.267844}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 4130981185358282}
@@ -988,3 +989,14 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1994565347329592}
   m_Mesh: {fileID: 4300010, guid: 7208a0cedd995a84d9cecc3830232623, type: 3}
+--- !u!114 &114550198333404360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1934709087002358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856a37841ae6aae44a7ab832a13625bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
