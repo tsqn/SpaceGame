@@ -20,6 +20,7 @@ namespace Editor
         {
             Models = models;
 
+            
             Properties = models.Select(stats => new WindowProperty<T>
             {
                 Model = stats

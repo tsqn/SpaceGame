@@ -1,6 +1,8 @@
 ﻿namespace Data
 {
-    public class BaseShipStats
+    using UnityEngine;
+
+    public class BaseShipStats : ScriptableObject
     {
         public float Health;
         public float Mobility;

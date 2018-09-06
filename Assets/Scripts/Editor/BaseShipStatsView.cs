@@ -27,19 +27,23 @@ namespace Editor
             Update();
             GUILayout.Box("Base ship stats", _boxStyle);
             if (GUILayout.Button("Add"))
-                Properties.Add(new WindowProperty<BaseShipStats>
-                {
-                    Model = new BaseShipStats
-                    {
-                        Type = $"TYPE {Properties.Count + 1}"
-                    },
-                    ActionOnUpdate = ActionOnUpdate.Add
-                });
+                Properties.Add(CreateNewView());
 
             foreach (var shipStats in Properties)
             {
                 ShowProperty(shipStats);
             }
+        }
+
+        private static WindowProperty<BaseShipStats> CreateNewView()
+        {
+            var windowProperty = new WindowProperty<BaseShipStats>
+            {
+                Model = ScriptableObject.CreateInstance<BaseShipStats>(),
+                ActionOnUpdate = ActionOnUpdate.Add
+            };
+            windowProperty.Model.Type = $"New";
+            return windowProperty;
         }
 
         protected override void Show(BaseShipStats model)

@@ -30,19 +30,23 @@ namespace Editor
             GUILayout.Box("Ship stats multiplier", _boxStyle);
 
             if (GUILayout.Button("Add"))
-                Properties.Add(new WindowProperty<ShipStatsMultipliers>
-                {
-                    Model = new ShipStatsMultipliers
-                    {
-                        Type = $"TYPE M {Properties.Count + 1}"
-                    },
-                    ActionOnUpdate = ActionOnUpdate.Add
-                });
+                Properties.Add(CreateNewModel());
 
             foreach (var shipStats in Properties)
             {
                 ShowProperty(shipStats);
             }
+        }
+        
+        private static WindowProperty<ShipStatsMultipliers> CreateNewModel()
+        {
+            var windowProperty = new WindowProperty<ShipStatsMultipliers>
+            {
+                Model = ScriptableObject.CreateInstance<ShipStatsMultipliers>(),
+                ActionOnUpdate = ActionOnUpdate.Add
+            };
+            windowProperty.Model.Type = $"New";
+            return windowProperty;
         }
 
         protected override void Show(ShipStatsMultipliers model)
