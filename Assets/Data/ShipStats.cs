@@ -1,16 +1,16 @@
 ﻿namespace Data
 {
+    using System;
     using System.Collections.Generic;
 
     using UnityEngine;
 
     [CreateAssetMenu(fileName = "ShipStatsData", menuName = "SpaceGame/ShipStatsData")]
+    [Serializable]
     public class ShipStats : ScriptableObject
     {
-        [SerializeField]
         public List<BaseShipStats> BaseShipStats;
 
-        [SerializeField]
         public List<ShipStatsMultipliers> ShipStatsMultipliers;
     }
 }

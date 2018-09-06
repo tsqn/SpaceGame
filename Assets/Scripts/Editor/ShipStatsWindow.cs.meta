@@ -3,7 +3,9 @@ guid: 7da4d27d5b5590a4bbaa8d210684157c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_PersistentViewDataDictionary: {instanceID: 0}
+  - ShipStats: {fileID: 11400000, guid: 722958378284a874eb25ca3bcf5ca620, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -4,6 +4,8 @@
 
     using Data;
 
+    using Newtonsoft.Json;
+
     using UnityEditor;
 
     using UnityEngine;
@@ -32,24 +34,33 @@
             _styleChangerWindow.minSize = new Vector2(300, 80);
         }
 
-        private void Load()
+        private ShipStats GetShipStats()
         {
-            ShipStats = AssetDatabase.LoadAssetAtPath<ShipStats>("Assets/Resources/Data/ShipStatsData.asset");
+            ShipStats shipStats = null;
 
-            if (ShipStats != null)
+
+            if (EditorPrefs.HasKey(nameof(ShipStats)))
             {
-                if (ShipStats.BaseShipStats == null)
-                    ShipStats.BaseShipStats = new List<BaseShipStats>();
-
-                if (ShipStats.ShipStatsMultipliers == null)
-                    ShipStats.ShipStatsMultipliers = new List<ShipStatsMultipliers>();
-
-                return;
+                var statsString = EditorPrefs.GetString(nameof(Data.ShipStats));
+                Debug.Log("LOAD" + statsString);
+                shipStats = JsonConvert.DeserializeObject<ShipStats>(statsString);
             }
 
-            ShipStats = CreateInstance<ShipStats>();
-            ShipStats.BaseShipStats = new List<BaseShipStats>();
-            ShipStats.ShipStatsMultipliers = new List<ShipStatsMultipliers>();
+            if (shipStats == null)
+                shipStats = CreateInstance<ShipStats>();
+
+            if (shipStats.BaseShipStats == null)
+                shipStats.BaseShipStats = new List<BaseShipStats>();
+
+            if (shipStats.ShipStatsMultipliers == null)
+                shipStats.ShipStatsMultipliers = new List<ShipStatsMultipliers>();
+
+            return shipStats;
+        }
+
+        private void Load()
+        {
+            ShipStats = GetShipStats();
         }
 
         private void OnEnable()
@@ -72,8 +83,7 @@
 
         private void Save()
         {
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+            EditorPrefs.SetString(nameof(Data.ShipStats), JsonConvert.SerializeObject(ShipStats));
         }
     }
 }
