@@ -11,5 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcad099de737d554f88b42a7ba9e382b, type: 3}
   m_Name: ShipStatsData
   m_EditorClassIdentifier: 
-  BaseShipStats: []
-  ShipStatsMultipliers: []
+  BaseShipStats:
+  - {fileID: 11400000, guid: 4739615f81b4a344fa6c231a1bc8ad77, type: 2}
+  ShipStatsMultipliers:
+  - {fileID: 11400000, guid: cd0493450e8025d40915f4d1145e5f3f, type: 2}

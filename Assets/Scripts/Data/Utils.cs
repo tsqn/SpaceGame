@@ -6,9 +6,11 @@
 
     public static class Utils
     {
-        private const string DEFAULT_PACKAGE_ROOT = "Assets/Scripts/Data";
+        private const string DEFAULT_PACKAGE_ROOT = "Assets/Resources/Data";
 
-        public static string PackageRoot
+        public static string ShipStatsDataPath => $"{Utils.DataRoot}/Ships";
+        
+        public static string DataRoot
         {
             get
             {

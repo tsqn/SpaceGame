@@ -1,6 +1,7 @@
 namespace Editor.ShipStatsEditor
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     using Data;
 
@@ -47,12 +48,19 @@ namespace Editor.ShipStatsEditor
         /// </summary>
         private static ViewModel<ShipStatsMultipliers> CreateNewModel()
         {
+            var shipStatsMultipliers = ScriptableObject.CreateInstance<ShipStatsMultipliers>();
+            var defaultName = $"New";
+            var assetPath = $"{Utils.ShipStatsDataPath}/{defaultName}.asset";
+            
+            AssetDatabase.CreateAsset(shipStatsMultipliers, EditorUtils.GetUniqueAssetName<ShipStatsMultipliers>(assetPath));
+            
             var windowProperty = new ViewModel<ShipStatsMultipliers>
             {
-                Model = ScriptableObject.CreateInstance<ShipStatsMultipliers>(),
+                Model = shipStatsMultipliers,
                 ActionOnUpdate = ActionOnUpdate.Add
             };
-            windowProperty.Model.Type = $"New";
+
+            windowProperty.Model.Type = defaultName;
             return windowProperty;
         }
 

@@ -542,6 +542,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e96fff96bd1fa4abd106628114e63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sid: 
+  BaseShipStats: {fileID: 0}
+  ShipStatsMultipliers: {fileID: 0}
 --- !u!1 &69798279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,6 +1810,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e96fff96bd1fa4abd106628114e63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sid: 
+  BaseShipStats: {fileID: 0}
+  ShipStatsMultipliers: {fileID: 0}
 --- !u!1 &285553278
 GameObject:
   m_ObjectHideFlags: 0
@@ -2844,6 +2850,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e96fff96bd1fa4abd106628114e63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sid: 
+  BaseShipStats: {fileID: 0}
+  ShipStatsMultipliers: {fileID: 0}
 --- !u!1 &401058422
 GameObject:
   m_ObjectHideFlags: 0
@@ -3123,6 +3132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e96fff96bd1fa4abd106628114e63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sid: 
+  BaseShipStats: {fileID: 11400000, guid: 4739615f81b4a344fa6c231a1bc8ad77, type: 2}
+  ShipStatsMultipliers: {fileID: 11400000, guid: cd0493450e8025d40915f4d1145e5f3f,
+    type: 2}
 --- !u!1 &428726220
 GameObject:
   m_ObjectHideFlags: 0
@@ -5540,6 +5553,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e96fff96bd1fa4abd106628114e63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sid: 
+  BaseShipStats: {fileID: 0}
+  ShipStatsMultipliers: {fileID: 0}
 --- !u!1 &838778367
 GameObject:
   m_ObjectHideFlags: 0
@@ -6660,6 +6676,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e96fff96bd1fa4abd106628114e63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sid: 
+  BaseShipStats: {fileID: 0}
+  ShipStatsMultipliers: {fileID: 0}
 --- !u!1 &979441301
 GameObject:
   m_ObjectHideFlags: 0
@@ -9989,6 +10008,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e96fff96bd1fa4abd106628114e63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sid: 
+  BaseShipStats: {fileID: 0}
+  ShipStatsMultipliers: {fileID: 0}
 --- !u!1 &1523282515
 GameObject:
   m_ObjectHideFlags: 0
@@ -10121,6 +10143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e96fff96bd1fa4abd106628114e63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sid: 
+  BaseShipStats: {fileID: 0}
+  ShipStatsMultipliers: {fileID: 0}
 --- !u!1 &1535116505
 GameObject:
   m_ObjectHideFlags: 0
@@ -10182,6 +10207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e96fff96bd1fa4abd106628114e63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sid: 
+  BaseShipStats: {fileID: 0}
+  ShipStatsMultipliers: {fileID: 0}
 --- !u!1 &1570732204
 GameObject:
   m_ObjectHideFlags: 0
@@ -10395,6 +10423,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e96fff96bd1fa4abd106628114e63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sid: 
+  BaseShipStats: {fileID: 0}
+  ShipStatsMultipliers: {fileID: 0}
 --- !u!1 &1604582024
 GameObject:
   m_ObjectHideFlags: 0
@@ -12367,6 +12398,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e96fff96bd1fa4abd106628114e63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sid: 
+  BaseShipStats: {fileID: 0}
+  ShipStatsMultipliers: {fileID: 0}
 --- !u!1 &1888940732
 GameObject:
   m_ObjectHideFlags: 0
@@ -12535,6 +12569,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e96fff96bd1fa4abd106628114e63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sid: 
+  BaseShipStats: {fileID: 0}
+  ShipStatsMultipliers: {fileID: 0}
 --- !u!1 &1905858941
 GameObject:
   m_ObjectHideFlags: 0
@@ -13736,6 +13773,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e96fff96bd1fa4abd106628114e63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sid: 
+  BaseShipStats: {fileID: 0}
+  ShipStatsMultipliers: {fileID: 0}
 --- !u!1 &2110646573
 GameObject:
   m_ObjectHideFlags: 0

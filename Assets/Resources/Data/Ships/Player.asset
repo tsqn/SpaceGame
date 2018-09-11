@@ -7,10 +7,12 @@ MonoBehaviour:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 2
-  m_Script: {fileID: 11500000, guid: fcad099de737d554f88b42a7ba9e382b, type: 3}
-  m_Name: ShipStatsData
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8141b284234777b0c6a76578391c50, type: 3}
+  m_Name: Base Ship Stats
   m_EditorClassIdentifier: 
-  BaseShipStats:
-  - {fileID: 0}
-  ShipStatsMultipliers: []
+  Type: 1234
+  Health: 1
+  Mobility: 2
+  MoveSpeed: 3
+  ShootSpeed: 4

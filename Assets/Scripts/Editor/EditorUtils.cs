@@ -1,10 +1,13 @@
 namespace Editor
 {
     using System;
+    using System.Linq;
 
     using UnityEditor;
 
     using UnityEngine;
+
+    using Object = UnityEngine.Object;
 
     /// <summary>
     /// Вспомогательные методы для работы с окнами редактора.
@@ -49,5 +52,32 @@ namespace Editor
             guiLayoutInput.Invoke();
             EditorGUILayout.EndHorizontal();
         }
+        
+        
+        /// <summary>
+        /// Возвращает уникальное имя файла по пути.
+        /// </summary>
+        /// <param name="assetPath">Путь по умолчанию.</param>
+        /// <typeparam name="T"></typeparam>
+        public static string GetUniqueAssetName<T>(string assetPath) where T : Object
+        {
+            var newAssetPath = assetPath;
+            
+            var i = 0;
+            while (true)
+            {
+                if (AssetDatabase.LoadAssetAtPath<T>(newAssetPath) != null)
+                {
+                    i++;
+                    newAssetPath = $"{assetPath.Split('.').First()} {i}.asset";
+                    continue;
+                }
+
+                break;
+            }
+
+            return newAssetPath;
+        }
+
     }
 }

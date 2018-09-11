@@ -10,11 +10,13 @@ namespace Editor
 
     using UnityEngine;
 
+    using Object = UnityEngine.Object;
+
     /// <summary>
     /// Базовое представление для отображения.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class BaseView<T>
+    public class BaseView<T> where T : Object
     {
         /// <summary>
         /// Коллекция моделей для отображения.
@@ -93,6 +95,11 @@ namespace Editor
                         changed = true;
                         break;
                     case ActionOnUpdate.Delete:
+
+                        var assetPath = AssetDatabase.GetAssetPath(property.Model);
+                        if (!string.IsNullOrEmpty(assetPath))
+                            AssetDatabase.DeleteAsset(assetPath);
+
                         Models.Remove(property.Model);
                         changed = true;
                         break;

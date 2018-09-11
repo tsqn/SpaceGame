@@ -44,13 +44,19 @@ namespace Editor.ShipStatsEditor
         /// </summary>
         private static ViewModel<BaseShipStats> CreateNewView()
         {
+            var shipStatsMultipliers = ScriptableObject.CreateInstance<BaseShipStats>();
+            var defaultName = $"New";
+            var assetPath = $"{Utils.ShipStatsDataPath}/{defaultName}.asset";
+            
+            AssetDatabase.CreateAsset(shipStatsMultipliers, EditorUtils.GetUniqueAssetName<BaseShipStats>(assetPath));
+            
             var windowProperty = new ViewModel<BaseShipStats>
             {
-                Model = ScriptableObject.CreateInstance<BaseShipStats>(),
+                Model = shipStatsMultipliers,
                 ActionOnUpdate = ActionOnUpdate.Add
             };
-            windowProperty.Model.Type = $"New";
-            
+
+            windowProperty.Model.Type = defaultName;
             return windowProperty;
         }
 

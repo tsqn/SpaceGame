@@ -2,13 +2,12 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
 
     using UnityEditor;
 
     using UnityEngine;
 
-    [CreateAssetMenu(fileName = "ShipStatsData", menuName = "SpaceGame/ShipStatsData")]
+    [CreateAssetMenu(fileName = "Ship Stats Data", menuName = Constants.GAME_NAME + "/Ship Stats Data")]
     [Serializable]
     public class ShipStats : ScriptableObject
     {
@@ -16,10 +15,8 @@
 
         private static ShipStats _instance;
 
-        [SerializeField]
         public List<BaseShipStats> BaseShipStats;
 
-        [SerializeField]
         public List<ShipStatsMultipliers> ShipStatsMultipliers;
 
         public static ShipStats Instance
@@ -39,8 +36,7 @@
                 }
 
 
-                var path = Path.Combine(Utils.PackageRoot, ASSET_NAME);
-                _instance = AssetDatabase.LoadAssetAtPath<ShipStats>(path);
+                _instance = AssetDatabase.LoadAssetAtPath<ShipStats>(ShipStatsPath);
 
                 if (_instance != null)
                     return _instance;
@@ -53,10 +49,12 @@
                 if (_instance.ShipStatsMultipliers == null)
                     _instance.ShipStatsMultipliers = new List<ShipStatsMultipliers>();
 
-                AssetDatabase.CreateAsset(_instance, path);
+                AssetDatabase.CreateAsset(_instance, ShipStatsPath);
 
                 return _instance;
             }
         }
+
+        private static string ShipStatsPath => $"{Utils.ShipStatsDataPath}/{ASSET_NAME}";
     }
 }
