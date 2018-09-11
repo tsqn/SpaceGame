@@ -8,6 +8,9 @@ namespace Editor
 
     using UnityEngine;
 
+    /// <summary>
+    /// Преставление модификаторов характеристик корабля.
+    /// </summary>
     public class ShipStatsMultiplierView : BaseView<ShipStatsMultipliers>
     {
         private readonly GUIStyle _boxStyle;
@@ -24,6 +27,7 @@ namespace Editor
             };
         }
 
+        /// <inheritdoc />
         public override void Show()
         {
             Update();
@@ -34,13 +38,16 @@ namespace Editor
 
             foreach (var shipStats in Properties)
             {
-                ShowProperty(shipStats);
+                ShowViewModel(shipStats);
             }
         }
         
-        private static WindowProperty<ShipStatsMultipliers> CreateNewModel()
+        /// <summary>
+        /// Возвращает новую вьюмодель с базовыми значениями.
+        /// </summary>
+        private static ViewModel<ShipStatsMultipliers> CreateNewModel()
         {
-            var windowProperty = new WindowProperty<ShipStatsMultipliers>
+            var windowProperty = new ViewModel<ShipStatsMultipliers>
             {
                 Model = ScriptableObject.CreateInstance<ShipStatsMultipliers>(),
                 ActionOnUpdate = ActionOnUpdate.Add
@@ -49,21 +56,22 @@ namespace Editor
             return windowProperty;
         }
 
-        protected override void Show(ShipStatsMultipliers model)
+        /// <inheritdoc />
+        protected override void ShowModel(ShipStatsMultipliers model)
         {
             EditorGUILayout.BeginVertical();
 
-            model.Type = EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Type), model.Type);
+            model.Type = EditorUtils.ShowLine(nameof(ShipStatsMultipliers.Type), model.Type);
 
-            model.Health = EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Health), model.Health);
+            model.Health = EditorUtils.ShowLine(nameof(ShipStatsMultipliers.Health), model.Health);
 
-            model.ShootSpeed = EditorCommon.ShowLine(nameof(ShipStatsMultipliers.ShootSpeed), model.ShootSpeed);
+            model.ShootSpeed = EditorUtils.ShowLine(nameof(ShipStatsMultipliers.ShootSpeed), model.ShootSpeed);
 
-            model.MoveSpeed = EditorCommon.ShowLine(nameof(ShipStatsMultipliers.MoveSpeed), model.MoveSpeed);
+            model.MoveSpeed = EditorUtils.ShowLine(nameof(ShipStatsMultipliers.MoveSpeed), model.MoveSpeed);
 
-            model.Mobility = EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Mobility), model.Mobility);
+            model.Mobility = EditorUtils.ShowLine(nameof(ShipStatsMultipliers.Mobility), model.Mobility);
 
-            model.WeaponDamage = EditorCommon.ShowLine(nameof(ShipStatsMultipliers.WeaponDamage), model.WeaponDamage);
+            model.WeaponDamage = EditorUtils.ShowLine(nameof(ShipStatsMultipliers.WeaponDamage), model.WeaponDamage);
 
             EditorGUILayout.EndVertical();
         }

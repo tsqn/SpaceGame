@@ -10,34 +10,58 @@ namespace Editor
 
     using UnityEngine;
 
+    /// <summary>
+    /// Базовое представление для отображения.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class BaseView<T>
     {
+        /// <summary>
+        /// Коллекция моделей для отображения.
+        /// </summary>
         protected List<T> Models;
 
-        protected List<WindowProperty<T>> Properties;
+        /// <summary>
+        /// Коллекция вьюмоделей для отображения.
+        /// </summary>
+        protected List<ViewModel<T>> Properties;
 
-        public BaseView(List<T> models)
+        /// <summary>
+        /// Конструктор.
+        /// </summary>
+        /// <param name="models">Список моделей.</param>
+        protected BaseView(List<T> models)
         {
             Models = models;
 
-            
-            Properties = models.Select(stats => new WindowProperty<T>
+            Properties = models.Select(stats => new ViewModel<T>
             {
                 Model = stats
             }).ToList();
         }
 
+        /// <summary>
+        /// Метод отображения представления на окне.
+        /// </summary>
         public virtual void Show()
         {
             GUILayout.Box("Base view Title");
         }
 
-        protected virtual void Show(T model)
+        /// <summary>
+        /// Метод отображения модели.
+        /// </summary>
+        /// <param name="model"></param>
+        protected virtual void ShowModel(T model)
         {
-            EditorCommon.ShowLine(nameof(ShipStatsMultipliers.Type), model.ToString());
+            EditorUtils.ShowLine(nameof(ShipStatsMultipliers.Type), model.ToString());
         }
 
-        protected void ShowProperty(WindowProperty<T> property)
+        /// <summary>
+        /// Метод отображения вьюмодели.
+        /// </summary>
+        /// <param name="property"></param>
+        protected void ShowViewModel(ViewModel<T> property)
         {
             EditorGUILayout.BeginHorizontal();
 
@@ -50,7 +74,7 @@ namespace Editor
             EditorGUILayout.EndHorizontal();
 
             if (property.IsExpanded)
-                Show(property.Model);
+                ShowModel(property.Model);
         }
 
 
@@ -83,9 +107,9 @@ namespace Editor
 
         private void UpdateProperties()
         {
-            Properties = new List<WindowProperty<T>>(
+            Properties = new List<ViewModel<T>>(
                 Models
-                    .Select(stats => new WindowProperty<T>
+                    .Select(stats => new ViewModel<T>
                     {
                         Model = stats
                     }).ToList());

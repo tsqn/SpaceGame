@@ -14,13 +14,13 @@
 
         public ShipStats ShipStats;
 
-        public List<WindowProperty<BaseShipStats>> BaseShipStatsProperties { get; set; }
+        public List<ViewModel<BaseShipStats>> BaseShipStatsProperties { get; set; }
 
         public BaseShipStatsView BaseStatsView { get; set; }
 
         public ShipStatsMultiplierView ShipMultipliersView { get; set; }
 
-        public List<WindowProperty<ShipStatsMultipliers>> ShipStatsMultipliersProperties { get; set; }
+        public List<ViewModel<ShipStatsMultipliers>> ShipStatsMultipliersProperties { get; set; }
 
         /// <summary>
         /// Отобразить окно.

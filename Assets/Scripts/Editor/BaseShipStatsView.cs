@@ -8,10 +8,13 @@ namespace Editor
 
     using UnityEngine;
 
+    /// <summary>
+    /// Преставление базовых характеристик корабля.
+    /// </summary>
     public class BaseShipStatsView : BaseView<BaseShipStats>
     {
         private readonly GUIStyle _boxStyle;
-
+      
         public BaseShipStatsView(List<BaseShipStats> models) : base(models)
         {
             _boxStyle = new GUIStyle
@@ -22,6 +25,7 @@ namespace Editor
             };
         }
 
+        /// <inheritdoc />
         public override void Show()
         {
             Update();
@@ -31,34 +35,39 @@ namespace Editor
 
             foreach (var shipStats in Properties)
             {
-                ShowProperty(shipStats);
+                ShowViewModel(shipStats);
             }
         }
 
-        private static WindowProperty<BaseShipStats> CreateNewView()
+        /// <summary>
+        /// Возвращает новую вьюмодель с базовыми значениями.
+        /// </summary>
+        private static ViewModel<BaseShipStats> CreateNewView()
         {
-            var windowProperty = new WindowProperty<BaseShipStats>
+            var windowProperty = new ViewModel<BaseShipStats>
             {
                 Model = ScriptableObject.CreateInstance<BaseShipStats>(),
                 ActionOnUpdate = ActionOnUpdate.Add
             };
             windowProperty.Model.Type = $"New";
+            
             return windowProperty;
         }
 
-        protected override void Show(BaseShipStats model)
+        /// <inheritdoc />
+        protected override void ShowModel(BaseShipStats model)
         {
             EditorGUILayout.BeginVertical();
 
-            model.Type = EditorCommon.ShowLine(nameof(BaseShipStats.Type), model.Type);
+            model.Type = EditorUtils.ShowLine(nameof(BaseShipStats.Type), model.Type);
 
-            model.Health = EditorCommon.ShowLine(nameof(BaseShipStats.Health), model.Health);
+            model.Health = EditorUtils.ShowLine(nameof(BaseShipStats.Health), model.Health);
 
-            model.ShootSpeed = EditorCommon.ShowLine(nameof(BaseShipStats.ShootSpeed), model.ShootSpeed);
+            model.ShootSpeed = EditorUtils.ShowLine(nameof(BaseShipStats.ShootSpeed), model.ShootSpeed);
 
-            model.MoveSpeed = EditorCommon.ShowLine(nameof(BaseShipStats.MoveSpeed), model.MoveSpeed);
+            model.MoveSpeed = EditorUtils.ShowLine(nameof(BaseShipStats.MoveSpeed), model.MoveSpeed);
 
-            model.Mobility = EditorCommon.ShowLine(nameof(BaseShipStats.Mobility), model.Mobility);
+            model.Mobility = EditorUtils.ShowLine(nameof(BaseShipStats.Mobility), model.Mobility);
 
             EditorGUILayout.EndVertical();
         }
