@@ -1,6 +1,7 @@
 ﻿namespace Editor.ShipStatsEditor
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     using Data;
 
@@ -76,6 +77,9 @@
 
                 AssetDatabase.RenameAsset(oldFilePath, newFilePath);
             }
+            
+            ShipStats.BaseShipStats = ShipStats.BaseShipStats.OrderBy(stats => stats.Type).ToList();
+            ShipStats.ShipStatsMultipliers = ShipStats.ShipStatsMultipliers.OrderBy(stats => stats.Type).ToList();
         }
     }
 }

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b8141b284234777b0c6a76578391c50, type: 3}
-  m_Name: Base Ship Stats
+  m_Name: Player
   m_EditorClassIdentifier: 
-  Type: 1234
+  Type: Player
   Health: 1
   Mobility: 2
   MoveSpeed: 3

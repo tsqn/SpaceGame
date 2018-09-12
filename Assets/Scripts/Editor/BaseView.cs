@@ -115,11 +115,13 @@ namespace Editor
         private void UpdateProperties()
         {
             Properties = new List<ViewModel<T>>(
-                Models
+                Models.OrderBy(stats => stats.name)
                     .Select(stats => new ViewModel<T>
                     {
                         Model = stats
                     }).ToList());
+            
+            
         }
     }
 }
