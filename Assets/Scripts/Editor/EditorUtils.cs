@@ -51,6 +51,19 @@ namespace Editor
             ShowInput(labelText, () => result = EditorGUILayout.TextField(value));
             return result;
         }
+        
+        /// <summary>
+        /// Отображает строку с заголовком и полем для объекта.
+        /// </summary>
+        /// <param name="labelText">Текст заголовка.</param>
+        /// <param name="value">Значение поля для ввода.</param>
+        /// <returns>Строка ввода.</returns>
+        public static T ShowLine<T>(string labelText, T value) where T: Object
+        {
+            var result = value;
+            ShowInput(labelText, () => result = (T)EditorGUILayout.ObjectField(value, typeof(T), false));
+            return result;
+        }
 
         /// <summary>
         /// Отображает строку с заголовком и полем для ввода значения с плавующей точкой.

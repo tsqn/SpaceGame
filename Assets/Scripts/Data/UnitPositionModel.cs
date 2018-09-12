@@ -2,19 +2,16 @@ namespace Data
 {
     using System;
 
-    using UnityEngine;
-
     [Serializable]
-    public class UnitPositionModel : ScriptableObject
+    public class UnitPositionModel
     {
-        public string ObjectId;
+        public float PosX;
+        public float PosY;
+        public float PosZ;
 
-        public int PosX;
-        public int PosY;
-        public int PosZ;
-
-        public int RotX;
-        public int RotY;
-        public int RotZ;
+        public float RotX;
+        public float RotY;
+        public float RotZ;
+        public string Sid;
     }
 }

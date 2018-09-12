@@ -4,8 +4,10 @@ namespace Data
 
     using UnityEngine;
 
-    public class LevelEnemyPositions : ScriptableObject
+    public class LevelUnitPositions : ScriptableObject
     {
+        public string Name;
+
         public List<UnitPositionModel> UnitPositionModels;
     }
 }
