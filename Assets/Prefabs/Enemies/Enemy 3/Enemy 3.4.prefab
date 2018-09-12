@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4665600660406130}
-  - component: {fileID: 114213982596607992}
+  - component: {fileID: 114777195767800924}
   m_Layer: 0
   m_Name: Enemy 3.4
   m_TagString: Untagged
@@ -186,7 +186,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1234261744242246}
   m_Mesh: {fileID: 4300002, guid: 63bc304393f75974c84503c464a36e39, type: 3}
---- !u!114 &114213982596607992
+--- !u!114 &114777195767800924
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -194,6 +194,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1121079319611182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 856a37841ae6aae44a7ab832a13625bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 57e96fff96bd1fa4abd106628114e63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sid: Enemy 3.4
+  BaseShipStats: {fileID: 0}
+  ShipStatsMultipliers: {fileID: 0}

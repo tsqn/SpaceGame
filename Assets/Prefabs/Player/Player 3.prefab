@@ -449,7 +449,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443163086662636}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.1823478, y: -0.046703815, z: 4.267844}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 4308564047031708}
@@ -1219,3 +1219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d662e61f4ab21409a2fb09717256c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sid: Player 3
+  BaseShipStats: {fileID: 0}
+  ShipStatsMultipliers: {fileID: 0}
