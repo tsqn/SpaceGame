@@ -1,10 +1,10 @@
 namespace Data
 {
-    using Entities;
+    using System;
 
     using UnityEngine;
 
-    [System.Serializable]
+    [Serializable]
     public class UnitPositionModel : ScriptableObject
     {
         public string ObjectId;
@@ -12,7 +12,7 @@ namespace Data
         public int PosX;
         public int PosY;
         public int PosZ;
-        
+
         public int RotX;
         public int RotY;
         public int RotZ;

@@ -26,7 +26,7 @@ namespace Editor
         /// <summary>
         /// Коллекция вьюмоделей для отображения.
         /// </summary>
-        protected List<ViewModel<T>> Properties;
+        protected List<ViewModel<T>> ViewModels;
 
         /// <summary>
         /// Конструктор.
@@ -36,7 +36,7 @@ namespace Editor
         {
             Models = models;
 
-            Properties = models.Select(stats => new ViewModel<T>
+            ViewModels = models.Select(stats => new ViewModel<T>
             {
                 Model = stats
             }).ToList();
@@ -56,27 +56,27 @@ namespace Editor
         /// <param name="model"></param>
         protected virtual void ShowModel(T model)
         {
-            EditorUtils.ShowLine(nameof(ShipStatsMultipliers.Type), model.ToString());
+            EditorUtils.ShowLine(nameof(UnitAttributesMultipliers.Type), model.ToString());
         }
 
         /// <summary>
-        /// Метод отображения вьюмодели.
+        /// Отрисовать вьюмодель.
         /// </summary>
-        /// <param name="property"></param>
-        protected void ShowViewModel(ViewModel<T> property)
+        /// <param name="viewModel">Вьюмодель.</param>
+        protected void ShowViewModel(ViewModel<T> viewModel)
         {
             EditorGUILayout.BeginHorizontal();
 
-            if (GUILayout.Button(property.Model.ToString()))
-                property.IsExpanded = !property.IsExpanded;
+            if (GUILayout.Button(viewModel.Model.ToString()))
+                viewModel.IsExpanded = !viewModel.IsExpanded;
 
             if (GUILayout.Button("DELETE", GUILayout.Width(60)))
-                property.ActionOnUpdate = ActionOnUpdate.Delete;
+                viewModel.ActionOnUpdate = ActionOnUpdate.Delete;
 
             EditorGUILayout.EndHorizontal();
 
-            if (property.IsExpanded)
-                ShowModel(property.Model);
+            if (viewModel.IsExpanded)
+                ShowModel(viewModel.Model);
         }
 
 
@@ -84,23 +84,23 @@ namespace Editor
         {
             var changed = false;
 
-            foreach (var property in Properties)
+            foreach (var viewModel in ViewModels)
             {
-                switch (property.ActionOnUpdate)
+                switch (viewModel.ActionOnUpdate)
                 {
                     case ActionOnUpdate.None:
                         break;
                     case ActionOnUpdate.Add:
-                        Models.Add(property.Model);
+                        Models.Add(viewModel.Model);
                         changed = true;
                         break;
                     case ActionOnUpdate.Delete:
 
-                        var assetPath = AssetDatabase.GetAssetPath(property.Model);
+                        var assetPath = AssetDatabase.GetAssetPath(viewModel.Model);
                         if (!string.IsNullOrEmpty(assetPath))
                             AssetDatabase.DeleteAsset(assetPath);
 
-                        Models.Remove(property.Model);
+                        Models.Remove(viewModel.Model);
                         changed = true;
                         break;
                     default:
@@ -109,19 +109,17 @@ namespace Editor
             }
 
             if (changed)
-                UpdateProperties();
+                UpdateViewModels();
         }
 
-        private void UpdateProperties()
+        private void UpdateViewModels()
         {
-            Properties = new List<ViewModel<T>>(
+            ViewModels = new List<ViewModel<T>>(
                 Models.OrderBy(stats => stats.name)
                     .Select(stats => new ViewModel<T>
                     {
                         Model = stats
                     }).ToList());
-            
-            
         }
     }
 }

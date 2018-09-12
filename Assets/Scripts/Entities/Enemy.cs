@@ -1,5 +1,6 @@
 ﻿namespace Entities
 {
-    public class Enemy : Unit {
+    public class Enemy : Unit
+    {
     }
 }

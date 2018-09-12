@@ -6,6 +6,9 @@
 
     using UnityEngine;
 
+    /// <summary>
+    /// Юнит.
+    /// </summary>
     public class Unit : MonoBehaviour
     {
         /// <summary>
@@ -42,8 +45,10 @@
         /// </summary>
         private void InitializeAttributes()
         {
-            var baseShipStats = ShipStats.Instance.BaseShipStats.FirstOrDefault(stats => Sid.Contains(stats.Type));
-            var shipStatsMultipliers = ShipStats.Instance.ShipStatsMultipliers.FirstOrDefault(stats => stats.Type == Sid);
+            var baseShipStats =
+                UnitAttributes.Instance.ShipBaseAttributes.FirstOrDefault(stats => Sid.Contains(stats.Type));
+            var shipStatsMultipliers =
+                UnitAttributes.Instance.ShipAttributesMultipliers.FirstOrDefault(stats => stats.Type == Sid);
 
             if (baseShipStats == null || shipStatsMultipliers == null)
             {

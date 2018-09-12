@@ -8,15 +8,13 @@
     {
         private const string DEFAULT_PACKAGE_ROOT = "Assets/Resources/Data";
 
-        public static string ShipStatsDataPath => $"{Utils.DataRoot}/Ships";
-        
         public static string DataRoot
         {
             get
             {
 #if UNITY_EDITOR
                 var guids = AssetDatabase.FindAssets("PresentationWindow t:Script");
-                if (guids.Length == 0) 
+                if (guids.Length == 0)
                     return DEFAULT_PACKAGE_ROOT;
 
                 var path = AssetDatabase.GUIDToAssetPath(guids[0]);
@@ -26,5 +24,7 @@
 #endif
             }
         }
+
+        public static string ShipStatsDataPath => $"{DataRoot}/Ships";
     }
 }

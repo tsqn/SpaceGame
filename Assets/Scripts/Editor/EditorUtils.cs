@@ -15,6 +15,31 @@ namespace Editor
     public static class EditorUtils
     {
         /// <summary>
+        /// Возвращает уникальное имя файла по пути.
+        /// </summary>
+        /// <param name="assetPath">Путь по умолчанию.</param>
+        /// <typeparam name="T"></typeparam>
+        public static string GetUniqueAssetName<T>(string assetPath) where T : Object
+        {
+            var newAssetPath = assetPath;
+
+            var i = 0;
+            while (true)
+            {
+                if (AssetDatabase.LoadAssetAtPath<T>(newAssetPath) != null)
+                {
+                    i++;
+                    newAssetPath = $"{assetPath.Split('.').First()} {i}.asset";
+                    continue;
+                }
+
+                break;
+            }
+
+            return newAssetPath;
+        }
+
+        /// <summary>
         /// Отображает строку с заголовком и полем для ввода текста.
         /// </summary>
         /// <param name="labelText">Текст заголовка.</param>
@@ -52,32 +77,5 @@ namespace Editor
             guiLayoutInput.Invoke();
             EditorGUILayout.EndHorizontal();
         }
-        
-        
-        /// <summary>
-        /// Возвращает уникальное имя файла по пути.
-        /// </summary>
-        /// <param name="assetPath">Путь по умолчанию.</param>
-        /// <typeparam name="T"></typeparam>
-        public static string GetUniqueAssetName<T>(string assetPath) where T : Object
-        {
-            var newAssetPath = assetPath;
-            
-            var i = 0;
-            while (true)
-            {
-                if (AssetDatabase.LoadAssetAtPath<T>(newAssetPath) != null)
-                {
-                    i++;
-                    newAssetPath = $"{assetPath.Split('.').First()} {i}.asset";
-                    continue;
-                }
-
-                break;
-            }
-
-            return newAssetPath;
-        }
-
     }
 }

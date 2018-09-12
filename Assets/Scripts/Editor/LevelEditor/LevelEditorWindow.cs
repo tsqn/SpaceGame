@@ -1,4 +1,4 @@
-namespace Editor.LevelEditor 
+namespace Editor.LevelEditor
 {
     using UnityEditor;
 
@@ -7,7 +7,7 @@ namespace Editor.LevelEditor
     public class LevelEditorWindow : EditorWindow
     {
         private static LevelEditorWindow _levelEditorWindow;
-        
+
         /// <summary>
         /// Отобразить окно.
         /// </summary>

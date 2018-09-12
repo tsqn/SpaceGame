@@ -1,9 +1,9 @@
-﻿using System;
-
-using UnityEngine;
-
-namespace Controllers
+﻿namespace Controllers
 {
+    using System;
+
+    using UnityEngine;
+
     public class ShipAnimationController : MonoBehaviour
     {
         private Animator _animator;
