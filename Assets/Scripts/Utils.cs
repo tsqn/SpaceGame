@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 using UnityEditor;
 
@@ -39,5 +41,23 @@ public static class Utils
         var prefabRoot = PrefabUtility.GetPrefabParent(instance);
         var assetPath = AssetDatabase.GetAssetPath(prefabRoot);
         return AssetDatabase.LoadAssetAtPath<GameObject>(assetPath).gameObject;
+    }
+
+    /// <summary>
+    /// Split string by capital symbols.
+    /// </summary>
+    /// <param name="inputString">String to split.</param>
+    /// <returns>"Word1 Word2"</returns>
+    public static string SplitByCamelCase(string inputString)
+    {
+        var result = "";
+
+        var splitString = Regex.Split(inputString, @"(?<!^)(?=[A-Z])").ToList();
+
+        if (splitString.Count > 1 && !result.Contains(" "))
+            result = splitString.Aggregate(result, (current, word) => current + $"{word} ");
+
+
+        return result.Trim();
     }
 }
