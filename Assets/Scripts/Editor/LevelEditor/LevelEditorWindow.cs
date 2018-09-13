@@ -1,5 +1,6 @@
 namespace Editor.LevelEditor
 {
+    using System;
     using System.Collections.Generic;
 
     using Data;
@@ -14,6 +15,10 @@ namespace Editor.LevelEditor
     {
         private static LevelEditorWindow _levelEditorWindow;
 
+        private string _levelNameText;
+        
+        private LevelUnitPositions _levelUnitPositions;
+
         /// <summary>
         /// Отобразить окно.
         /// </summary>
@@ -24,40 +29,9 @@ namespace Editor.LevelEditor
             _levelEditorWindow.minSize = new Vector2(300, 80);
         }
 
-        private string _levelNameText;
-        private LevelUnitPositions _levelUnitPositions;
-        private void OnGUI()
-        {
-            
-            _levelNameText = EditorUtils.ShowLine("New Level Name", _levelNameText);
-            if (GUILayout.Button("Create Level"))
-            {
-                CreateLevel();
-            }
-            
-            _levelUnitPositions = EditorUtils.ShowLine("Level Asset", _levelUnitPositions);
-            if (GUILayout.Button("Load Level"))
-            {
-                LoadLevel();
-            }
-            
-           
-            if (GUILayout.Button("Edit Current Level"))
-            {
-                EditLevel();
-            }
-        }
-
-        private void EditLevel()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void LoadLevel()
-        {
-            throw new System.NotImplementedException();
-        }
-
+        /// <summary>
+        /// Создает новый объект уровня.
+        /// </summary>
         private void CreateLevel()
         {
             var units = FindObjectsOfType<Unit>();
@@ -66,22 +40,51 @@ namespace Editor.LevelEditor
             levelUnitPositions.Name = _levelNameText;
 
             levelUnitPositions.UnitPositionModels = new List<UnitPositionModel>();
-
             foreach (var unit in units)
             {
                 levelUnitPositions.UnitPositionModels.Add(new UnitPositionModel
                 {
-                    Sid = unit.Sid,
-                    PosX = unit.transform.position.x,
-                    PosY = unit.transform.position.y,
-                    PosZ = unit.transform.position.z,
-                    RotX = unit.transform.rotation.x,
-                    RotY = unit.transform.rotation.y,
-                    RotZ = unit.transform.rotation.z
+                    GameObject = unit.GetPrefab(),
+                    Rotation = unit.transform.rotation,
+                    Position = unit.transform.position
                 });
             }
 
-            AssetDatabase.CreateAsset(levelUnitPositions, EditorUtils.GetUniqueAssetName<LevelUnitPositions>($"{Utils.DataRoot}/levels/{_levelNameText}.asset"));
+            AssetDatabase.CreateAsset(levelUnitPositions,
+                EditorUtils.GetUniqueAssetName<LevelUnitPositions>($"{Utils.DataRoot}/levels/{_levelNameText}.asset"));
+        }
+        
+        /// <summary>
+        /// Редактирование уровня.
+        /// </summary>
+        /// <exception cref="NotImplementedException">Пока не рализовано.</exception>
+        private void EditLevel()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Загрузка указанного уровня.
+        /// </summary>
+        private void LoadLevel()
+        {
+            SceneLoader.LoadScene(_levelUnitPositions);
+            _levelNameText = _levelUnitPositions.Name;
+        }
+
+        private void OnGUI()
+        {
+            _levelNameText = EditorUtils.ShowLine("New Level Name", _levelNameText);
+            if (GUILayout.Button("Create Level"))
+                CreateLevel();
+
+            _levelUnitPositions = EditorUtils.ShowLine("Level Asset", _levelUnitPositions);
+            if (GUILayout.Button("Load Level"))
+                LoadLevel();
+
+
+            if (GUILayout.Button("Edit Current Level"))
+                EditLevel();
         }
     }
 }

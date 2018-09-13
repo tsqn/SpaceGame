@@ -2,16 +2,27 @@ namespace Data
 {
     using System;
 
+    using UnityEngine;
+
+    using Object = UnityEngine.Object;
+
     [Serializable]
     public class UnitPositionModel
     {
-        public float PosX;
-        public float PosY;
-        public float PosZ;
+        /// <summary>
+        /// Префаб юнита.
+        /// </summary>
+        [SerializeField]
+        public Object GameObject;
 
-        public float RotX;
-        public float RotY;
-        public float RotZ;
-        public string Sid;
+        /// <summary>
+        /// Положение юнита.
+        /// </summary>
+        public Vector3 Position;
+
+        /// <summary>
+        /// Вращение юнита.
+        /// </summary>
+        public Quaternion Rotation;
     }
 }

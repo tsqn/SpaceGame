@@ -2,6 +2,10 @@
 
 using UnityEditor;
 
+using UnityEngine;
+
+using Object = UnityEngine.Object;
+
 public static class Utils
 {
     private const string DEFAULT_PACKAGE_ROOT = "Assets/Resources/Data";
@@ -24,4 +28,16 @@ public static class Utils
     }
 
     public static string ShipStatsDataPath => $"{DataRoot}/Ships";
+
+
+    /// <summary>
+    /// Возвращает префаб инстанса.
+    /// </summary>
+    /// <param name="instance">Инстанс префаба.</param>
+    public static GameObject GetPrefab(this Object instance)
+    {
+        var prefabRoot = PrefabUtility.GetPrefabParent(instance);
+        var assetPath = AssetDatabase.GetAssetPath(prefabRoot);
+        return AssetDatabase.LoadAssetAtPath<GameObject>(assetPath).gameObject;
+    }
 }
