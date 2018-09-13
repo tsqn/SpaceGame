@@ -16,7 +16,7 @@ namespace Editor.LevelEditor
         private static LevelEditorWindow _levelEditorWindow;
 
         private string _levelNameText;
-        
+
         private LevelUnitPositions _levelUnitPositions;
 
         /// <summary>
@@ -53,14 +53,28 @@ namespace Editor.LevelEditor
             AssetDatabase.CreateAsset(levelUnitPositions,
                 EditorUtils.GetUniqueAssetName<LevelUnitPositions>($"{Utils.DataRoot}/levels/{_levelNameText}.asset"));
         }
-        
+
         /// <summary>
         /// Редактирование уровня.
         /// </summary>
-        /// <exception cref="NotImplementedException">Пока не рализовано.</exception>
         private void EditLevel()
         {
-            throw new NotImplementedException();
+            var units = FindObjectsOfType<Unit>();
+            _levelUnitPositions.Name = _levelNameText;
+            _levelUnitPositions.UnitPositionModels = new List<UnitPositionModel>();
+            foreach (var unit in units)
+            {
+                _levelUnitPositions.UnitPositionModels.Add(new UnitPositionModel
+                {
+                    GameObject = unit.GetPrefab(),
+                    Rotation = unit.transform.rotation,
+                    Position = unit.transform.position
+                });
+            }
+
+            var oldFilePath = AssetDatabase.GetAssetPath(_levelUnitPositions);
+
+            AssetDatabase.RenameAsset(oldFilePath, _levelNameText);
         }
 
         /// <summary>

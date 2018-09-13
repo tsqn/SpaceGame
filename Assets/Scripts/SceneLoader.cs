@@ -2,6 +2,8 @@ using Data;
 
 using Entities;
 
+using UnityEditor;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,7 +31,7 @@ public class SceneLoader : MonoBehaviour
         
         foreach (var unitPositionModel in levelUnitPositions.UnitPositionModels)
         {
-            var unit = (GameObject)Instantiate(unitPositionModel.GameObject);
+            var unit = (GameObject)PrefabUtility.InstantiatePrefab(unitPositionModel.GameObject);
             unit.transform.position = unitPositionModel.Position;
             unit.transform.rotation = unitPositionModel.Rotation;
         }
