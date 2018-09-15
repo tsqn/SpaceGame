@@ -7,6 +7,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Загрузчик сцен.
+/// </summary>
 public class SceneLoader : MonoBehaviour
 {
     /// <summary>
@@ -40,7 +43,7 @@ public class SceneLoader : MonoBehaviour
     /// <summary>
     /// Удаляет всех юнитов со сцены.
     /// </summary>
-    private static void ClearScene()
+    public static void ClearScene()
     {
         var units = FindObjectsOfType<Unit>();
 

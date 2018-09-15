@@ -95,9 +95,22 @@ namespace Editor.LevelEditor
             if (GUILayout.Button("Load Level"))
                 LoadLevel();
 
+            if (GUILayout.Button("Clear Current Level"))
+                Clear();
+            
+            GUILayout.Space(10);
 
             if (GUILayout.Button("Edit Current Level"))
                 EditLevel();
+            
+        }
+
+        /// <summary>
+        /// Очищает текущую сцену от юнитов.
+        /// </summary>
+        private void Clear()
+        {
+            SceneLoader.ClearScene();
         }
     }
 }
