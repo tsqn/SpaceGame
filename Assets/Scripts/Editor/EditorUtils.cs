@@ -40,6 +40,18 @@ namespace Editor
         }
 
         /// <summary>
+        /// Возвращает префаб инстанса.
+        /// </summary>
+        /// <param name="instance">Инстанс префаба.</param>
+        public static GameObject GetPrefab(this Object instance)
+        {
+            var prefabRoot = PrefabUtility.GetPrefabParent(instance);
+            var assetPath = AssetDatabase.GetAssetPath(prefabRoot);
+            return AssetDatabase.LoadAssetAtPath<GameObject>(assetPath).gameObject;
+        }
+
+        
+        /// <summary>
         /// Отображает строку с заголовком и полем для ввода текста.
         /// </summary>
         /// <param name="labelText">Текст заголовка.</param>

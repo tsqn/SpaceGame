@@ -72,8 +72,9 @@ namespace Editor.LevelEditor
             }
 
             var oldFilePath = AssetDatabase.GetAssetPath(_levelUnitPositions);
-
+            
             AssetDatabase.RenameAsset(oldFilePath, _levelNameText);
+            AssetDatabase.SaveAssets();
         }
 
         /// <summary>

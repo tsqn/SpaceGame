@@ -21,7 +21,12 @@ public class LevelManager : MonoBehaviour
     /// Точка спавна игрока.
     /// </summary>
     public PlayerSpawnPoint PlayerSpawnPoint;
-
+    
+    /// <summary>
+    /// Список юнитов.
+    /// </summary>
+    public UnitsCollection UnitsCollection;
+    
     /// <summary>
     /// Расположение юнитов.
     /// </summary>
@@ -35,7 +40,7 @@ public class LevelManager : MonoBehaviour
         Name = UnitPositions.Name;
         SceneLoader.LoadScene(UnitPositions);
 
-        var player = UnitsCollection.Instance.GetUnitPrefabBySid(Settings.Instance.PlayerShipSid);
+        var player = UnitsCollection.GetUnitPrefabBySid(Settings.Instance.PlayerShipSid);
         Instantiate(player, PlayerSpawnPoint.transform.position, PlayerSpawnPoint.transform.rotation);
     }
 }

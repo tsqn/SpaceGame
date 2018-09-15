@@ -31,10 +31,13 @@ public class SceneLoader : MonoBehaviour
     /// <param name="levelUnitPositions">Описание положения юнитов.</param>
     private static void FillScene(LevelUnitPositions levelUnitPositions)
     {
-        
         foreach (var unitPositionModel in levelUnitPositions.UnitPositionModels)
         {
+#if UNITY_EDITOR
             var unit = (GameObject)PrefabUtility.InstantiatePrefab(unitPositionModel.GameObject);
+#else
+            var unit = (GameObject)Instantiate(unitPositionModel.GameObject);
+#endif
             unit.transform.position = unitPositionModel.Position;
             unit.transform.rotation = unitPositionModel.Rotation;
         }

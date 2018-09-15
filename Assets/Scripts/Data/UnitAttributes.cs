@@ -12,11 +12,8 @@
     public class UnitAttributes : ScriptableObject
     {
         private const string ASSET_NAME = "ShipStatsData.asset";
-
         private static UnitAttributes _instance;
-
         public List<UnitAttributesMultipliers> ShipAttributesMultipliers;
-
         public List<UnitBaseAttributes> ShipBaseAttributes;
 
         public static UnitAttributes Instance
@@ -36,8 +33,9 @@
                         _instance.ShipAttributesMultipliers = new List<UnitAttributesMultipliers>();
                 }
 
+                _instance = Resources.Load<UnitAttributes>(ShipStatsPath);
 
-                _instance = AssetDatabase.LoadAssetAtPath<UnitAttributes>(ShipStatsPath);
+#if UNITY_EDITOR
 
                 if (_instance != null)
                     return _instance;
@@ -51,6 +49,7 @@
                     _instance.ShipAttributesMultipliers = new List<UnitAttributesMultipliers>();
 
                 AssetDatabase.CreateAsset(_instance, ShipStatsPath);
+#endif
 
                 return _instance;
             }

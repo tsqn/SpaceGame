@@ -44,18 +44,6 @@ public static class Utils
     /// </summary>
     public static string ShipStatsDataPath => $"{DataRoot}/Ships";
 
-
-    /// <summary>
-    /// Возвращает префаб инстанса.
-    /// </summary>
-    /// <param name="instance">Инстанс префаба.</param>
-    public static GameObject GetPrefab(this Object instance)
-    {
-        var prefabRoot = PrefabUtility.GetPrefabParent(instance);
-        var assetPath = AssetDatabase.GetAssetPath(prefabRoot);
-        return AssetDatabase.LoadAssetAtPath<GameObject>(assetPath).gameObject;
-    }
-
     /// <summary>
     /// Разделяет слова написанные в CamelCase.
     /// </summary>

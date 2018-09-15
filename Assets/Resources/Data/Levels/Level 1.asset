@@ -15,53 +15,53 @@ MonoBehaviour:
   UnitPositionModels:
   - GameObject: {fileID: 1934709087002358, guid: cb9ea51a97606c04eae60b81455af12f,
       type: 2}
-    Position: {x: 1, y: 0, z: 0}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Position: {x: 0.00000086426735, y: 4, z: 2.0000005}
+    Rotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   - GameObject: {fileID: 1271550637415628, guid: 65e9b5e23e04be9409e2a67936a56283,
       type: 2}
-    Position: {x: 0, y: 0, z: 0}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Position: {x: 0.0000013411045, y: 4, z: 3}
+    Rotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   - GameObject: {fileID: 1310969163965298, guid: d81bbcd9f446fc84ea056e9079eda75c,
       type: 2}
-    Position: {x: -1, y: 0, z: -1}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Position: {x: -0.99999857, y: 4, z: 4.000001}
+    Rotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   - GameObject: {fileID: 1482489628756348, guid: 96ee205c89e8e6c4586a66ad030fedc2,
       type: 2}
-    Position: {x: 1, y: 0, z: -1}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Position: {x: -0.9999995, y: 4, z: 2.000001}
+    Rotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   - GameObject: {fileID: 1310969163965298, guid: d81bbcd9f446fc84ea056e9079eda75c,
       type: 2}
-    Position: {x: -1, y: 0, z: 1}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Position: {x: 1.0000019, y: 4, z: 3.9999995}
+    Rotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   - GameObject: {fileID: 1934709087002358, guid: cb9ea51a97606c04eae60b81455af12f,
       type: 2}
-    Position: {x: 1, y: 0, z: -3}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Position: {x: -2.9999998, y: 4, z: 2.000002}
+    Rotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   - GameObject: {fileID: 1934709087002358, guid: cb9ea51a97606c04eae60b81455af12f,
       type: 2}
-    Position: {x: 2, y: 0, z: 3}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Position: {x: 3.0000007, y: 4, z: 1.9999981}
+    Rotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   - GameObject: {fileID: 1482489628756348, guid: 96ee205c89e8e6c4586a66ad030fedc2,
       type: 2}
-    Position: {x: 1, y: 0, z: 1}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Position: {x: 1.0000014, y: 4, z: 1.999999}
+    Rotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   - GameObject: {fileID: 1482489628756348, guid: 96ee205c89e8e6c4586a66ad030fedc2,
       type: 2}
-    Position: {x: 1, y: 0, z: -2}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Position: {x: -1.9999998, y: 4, z: 2.0000014}
+    Rotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   - GameObject: {fileID: 1265890507376556, guid: 5f43bf315aa62734981ee8da437aeb74,
       type: 2}
-    Position: {x: -3, y: 0, z: 0}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Position: {x: 0.000002771616, y: 4, z: 6}
+    Rotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   - GameObject: {fileID: 1271550637415628, guid: 65e9b5e23e04be9409e2a67936a56283,
       type: 2}
-    Position: {x: 0, y: 0, z: -2}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Position: {x: -1.9999998, y: 4, z: 3.000002}
+    Rotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   - GameObject: {fileID: 1271550637415628, guid: 65e9b5e23e04be9409e2a67936a56283,
       type: 2}
-    Position: {x: 0, y: 0, z: 2}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Position: {x: 2.0000014, y: 4, z: 2.999999}
+    Rotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   - GameObject: {fileID: 1482489628756348, guid: 96ee205c89e8e6c4586a66ad030fedc2,
       type: 2}
-    Position: {x: 1, y: 0, z: 2}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Position: {x: 2, y: 4, z: 1.999999}
+    Rotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
