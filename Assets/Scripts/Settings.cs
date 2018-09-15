@@ -14,7 +14,7 @@ public class Settings : MonoBehaviour
             PlayerShipSid = DEFAULT_PLAYER_SHIP_SID;
     }
 
-    private void Start()
+    private void Awake()
     {
         if (Instance == null)
             Instance = this;

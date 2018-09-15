@@ -12,11 +12,9 @@ public class ShipButton : MonoBehaviour
     public Button Button;
 
     public Player Ship;
-
+    public GameObject SelectionLight;
     public UnityAction ShipSelected;
 
-    private bool _selected;
-    
     [HideInInspector]
     public string ShipSid;
 
@@ -24,13 +22,13 @@ public class ShipButton : MonoBehaviour
 
     public void Deselect()
     {
-        _selected = false;
+        SelectionLight.SetActive(false);
     }
 
     public void Select()
     {
         Settings.Instance.PlayerShipSid = ShipSid;
-        _selected = true;
+        SelectionLight.SetActive(true);
         ShipSelected?.Invoke();
 
     }
@@ -46,7 +44,6 @@ public class ShipButton : MonoBehaviour
 
     private void Update()
     {
-        if (_selected)
             Ship.gameObject.transform.Rotate(0, SpinSpeed * Time.deltaTime, 0);
     }
 }
