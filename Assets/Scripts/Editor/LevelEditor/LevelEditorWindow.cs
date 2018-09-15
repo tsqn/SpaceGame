@@ -1,6 +1,5 @@
 namespace Editor.LevelEditor
 {
-    using System;
     using System.Collections.Generic;
 
     using Data;

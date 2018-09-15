@@ -8,14 +8,24 @@ using UnityEngine;
 
 using Object = UnityEngine.Object;
 
+/// <summary>
+/// Утилитарные методы.
+/// </summary>
 public static class Utils
 {
+    /// <summary>
+    /// Дефолтный путь до папки с данными.
+    /// </summary>
     private const string DEFAULT_PACKAGE_ROOT = "Assets/Resources/Data";
 
+    /// <summary>
+    /// Возвращает путь до папки с таддными.
+    /// </summary>
     public static string DataRoot
     {
         get
         {
+            //TODO Разобраться с копипастой.
 #if UNITY_EDITOR
             var guids = AssetDatabase.FindAssets("PresentationWindow t:Script");
             if (guids.Length == 0)
@@ -29,6 +39,9 @@ public static class Utils
         }
     }
 
+    /// <summary>
+    /// Возвращает путь до папки с данными кораблей.
+    /// </summary>
     public static string ShipStatsDataPath => $"{DataRoot}/Ships";
 
 
@@ -44,9 +57,9 @@ public static class Utils
     }
 
     /// <summary>
-    /// Split string by capital symbols.
+    /// Разделяет слова написанные в CamelCase.
     /// </summary>
-    /// <param name="inputString">String to split.</param>
+    /// <param name="inputString">Строка для разделения.</param>
     /// <returns>"Word1 Word2"</returns>
     public static string SplitByCamelCase(string inputString)
     {
