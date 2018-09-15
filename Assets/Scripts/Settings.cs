@@ -9,7 +9,7 @@ public class Settings : MonoBehaviour
     /// Дефолтный корабль.
     /// </summary>
     private const string DEFAULT_PLAYER_SHIP_SID = "Player 1";
-    
+
     /// <summary>
     /// Инстанс настроек (синглтон).
     /// </summary>
@@ -33,7 +33,7 @@ public class Settings : MonoBehaviour
     {
         if (Instance == null)
             Instance = this;
-        else if (Instance == this)
+        else if (Instance != this)
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
