@@ -6,6 +6,8 @@ namespace Editor
 
     using Data;
 
+    using Extensions;
+
     using UnityEditor;
 
     using UnityEngine;
@@ -13,7 +15,7 @@ namespace Editor
     /// <summary>
     /// Базовое представление для отображения.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Тип модели.</typeparam>
     public class BaseView<T> where T : ScriptableObject
     {
         /// <summary>

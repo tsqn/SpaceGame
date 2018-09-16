@@ -6,6 +6,8 @@ namespace Editor.LevelEditor
 
     using Entities;
 
+    using Managers;
+
     using UnityEditor;
 
     using UnityEngine;

@@ -9,7 +9,7 @@
     /// <summary>
     /// Юнит.
     /// </summary>
-    public class Unit : MonoBehaviour
+    public class Unit : Entity
     {
         /// <summary>
         /// Текущиее здоровье юнита.
@@ -36,12 +36,7 @@
         private float _currentShootingSpeed;
 
         /// <summary>
-        /// Строковый идетификатор юнита.
-        /// </summary>
-        public string Sid;
-
-        /// <summary>
-        /// Инициализация характеристик коробля.
+        /// Инициализация характеристик ко-робля.
         /// </summary>
         private void InitializeAttributes()
         {
@@ -52,7 +47,7 @@
 
             if (baseShipStats == null || shipStatsMultipliers == null)
             {
-                Debug.Log($"Не удалось найти характеристики: {Sid}");
+                Debug.LogWarning($"Не удалось найти характеристики: {Sid}");
                 return;
             }
 
