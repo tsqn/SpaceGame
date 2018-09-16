@@ -3,7 +3,6 @@ using System.Linq;
 
 using UnityEngine;
 
-
 /// <summary>
 /// Контроллер элемента выбора корабля.
 /// </summary>
@@ -22,19 +21,19 @@ public class ShipSelectorController : MonoBehaviour
         ShipButtons.ForEach(button => button.ShipSelected = UpdateSelection);
     }
 
-    private void Start()
-    {
-        ShipButtons = GetComponentsInChildren<ShipButton>().ToList();
-        BindEvents();
-        SelectDefaultShip();
-    }
-
     /// <summary>
     /// Выбор дефолтного корабля.
     /// </summary>
     private void SelectDefaultShip()
     {
         ShipButtons.First(button => button.ShipSid == Settings.Instance.PlayerShipSid).Select();
+    }
+
+    private void Start()
+    {
+        ShipButtons = GetComponentsInChildren<ShipButton>().ToList();
+        BindEvents();
+        SelectDefaultShip();
     }
 
     /// <summary>

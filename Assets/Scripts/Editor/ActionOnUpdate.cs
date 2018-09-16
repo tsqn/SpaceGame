@@ -16,6 +16,16 @@
         Add,
 
         /// <summary>
+        /// Перемещение вверх.
+        /// </summary>
+        Up,
+
+        /// <summary>
+        /// Перемещение вниз
+        /// </summary>
+        Down,
+
+        /// <summary>
         /// Удаление вьюмодели.
         /// </summary>
         Delete

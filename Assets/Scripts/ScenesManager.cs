@@ -84,7 +84,7 @@ public class ScenesManager : MonoBehaviour
         Loading = true;
 
         DontDestroyOnLoad(gameObject);
-        
+
         _updateDelegates = new UpdateDelegate[(int) SceneState.Count];
 
         _updateDelegates[(int) SceneState.Reset] = UpdateSceneReset;
@@ -120,9 +120,9 @@ public class ScenesManager : MonoBehaviour
     private IEnumerator ShowLoadingScreen()
     {
         LoadingScreen.gameObject.SetActive(true);
-        
+
         yield return new WaitForSeconds(2);
-        
+
         LoadingScreen.gameObject.SetActive(false);
         Loading = false;
     }
@@ -176,7 +176,6 @@ public class ScenesManager : MonoBehaviour
     /// </summary>
     private void UpdateSceneReady()
     {
-        
         GC.Collect();
         _sceneState = SceneState.Run;
     }
@@ -214,7 +213,7 @@ public class ScenesManager : MonoBehaviour
         {
             if (!_resourceUnloadTask.isDone)
                 return;
-            
+
             _resourceUnloadTask = null;
             _sceneState = SceneState.PostLoad;
         }

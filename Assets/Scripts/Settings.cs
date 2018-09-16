@@ -20,15 +20,6 @@ public class Settings : MonoBehaviour
     /// </summary>
     public string PlayerShipSid;
 
-    /// <summary>
-    /// Инициализирует настройки.
-    /// </summary>
-    private void Initialize()
-    {
-        if (string.IsNullOrEmpty(PlayerShipSid))
-            PlayerShipSid = DEFAULT_PLAYER_SHIP_SID;
-    }
-
     private void Awake()
     {
         if (Instance == null)
@@ -39,5 +30,14 @@ public class Settings : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         Initialize();
+    }
+
+    /// <summary>
+    /// Инициализирует настройки.
+    /// </summary>
+    private void Initialize()
+    {
+        if (string.IsNullOrEmpty(PlayerShipSid))
+            PlayerShipSid = DEFAULT_PLAYER_SHIP_SID;
     }
 }

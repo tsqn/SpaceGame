@@ -59,6 +59,14 @@ public class ShipButton : MonoBehaviour
         ShipSelected?.Invoke();
     }
 
+    /// <summary>
+    /// Вращает корабль вокруг своей оси.
+    /// </summary>
+    private void Rotate()
+    {
+        Ship.gameObject.transform.Rotate(0, SpinSpeed * Time.deltaTime, 0);
+    }
+
     private void Start()
     {
         Ship = GetComponentInChildren<Player>();
@@ -70,13 +78,5 @@ public class ShipButton : MonoBehaviour
     private void Update()
     {
         Rotate();
-    }
-
-    /// <summary>
-    /// Вращает корабль вокруг своей оси.
-    /// </summary>
-    private void Rotate()
-    {
-        Ship.gameObject.transform.Rotate(0, SpinSpeed * Time.deltaTime, 0);
     }
 }

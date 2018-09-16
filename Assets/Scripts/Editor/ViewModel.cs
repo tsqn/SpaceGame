@@ -1,12 +1,10 @@
 ﻿namespace Editor
 {
-    using UnityEngine;
-
     /// <summary>
     /// Вьюмодель отображения.
     /// </summary>
     /// <typeparam name="T">Тип модели.</typeparam>
-    public class ViewModel<T> where T : Object
+    public class ViewModel<T> where T : class
     {
         /// <summary>
         /// Действие при отрисовке.

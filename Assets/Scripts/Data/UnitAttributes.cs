@@ -33,9 +33,10 @@
                         _instance.ShipAttributesMultipliers = new List<UnitAttributesMultipliers>();
                 }
 
-                _instance = Resources.Load<UnitAttributes>(ShipStatsPath);
 
 #if UNITY_EDITOR
+
+                _instance = AssetDatabase.LoadAssetAtPath<UnitAttributes>(ShipStatsPath);
 
                 if (_instance != null)
                     return _instance;
@@ -49,6 +50,9 @@
                     _instance.ShipAttributesMultipliers = new List<UnitAttributesMultipliers>();
 
                 AssetDatabase.CreateAsset(_instance, ShipStatsPath);
+
+#else
+                _instance = Resources.Load<UnitAttributes>(ShipStatsPath);
 #endif
 
                 return _instance;

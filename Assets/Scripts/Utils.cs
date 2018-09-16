@@ -4,10 +4,6 @@ using System.Text.RegularExpressions;
 
 using UnityEditor;
 
-using UnityEngine;
-
-using Object = UnityEngine.Object;
-
 /// <summary>
 /// Утилитарные методы.
 /// </summary>
@@ -38,6 +34,11 @@ public static class Utils
 #endif
         }
     }
+
+    /// <summary>
+    /// Возвращает путь до папки с данными уровней.
+    /// </summary>
+    public static string LevelsDataPath => $"{DataRoot}/Levels";
 
     /// <summary>
     /// Возвращает путь до папки с данными кораблей.

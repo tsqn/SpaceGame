@@ -13,32 +13,23 @@ namespace Editor.ShipStatsEditor
     /// </summary>
     public class UnitAttributesMultipliersView : BaseView<UnitAttributesMultipliers>
     {
-        private readonly GUIStyle _boxStyle;
-
         public UnitAttributesMultipliersView(List<UnitAttributesMultipliers> models) : base(models)
         {
-            Models = models;
-
-            _boxStyle = new GUIStyle
-            {
-                alignment = TextAnchor.MiddleCenter,
-                margin = new RectOffset(10, 10, 10, 10),
-                border = new RectOffset(5, 5, 5, 5)
-            };
+            OrderByName = true;
         }
 
         /// <inheritdoc />
         public override void Show()
         {
             Update();
-            GUILayout.Box("Ship stats multiplier", _boxStyle);
+            GUILayout.Box("Ship stats multiplier", BoxStyle);
 
             if (GUILayout.Button("Add"))
-                ViewModels.Add(CreateNewModel());
+                ViewModels.Add(CreateNewView(Utils.ShipStatsDataPath));
 
-            foreach (var shipStats in ViewModels)
+            foreach (var viewModel in ViewModels)
             {
-                ShowViewModel(shipStats);
+                ShowViewModel(viewModel);
             }
         }
 
@@ -61,28 +52,6 @@ namespace Editor.ShipStatsEditor
                 EditorUtils.ShowLine(nameof(UnitAttributesMultipliers.WeaponDamage), model.WeaponDamage);
 
             EditorGUILayout.EndVertical();
-        }
-
-        /// <summary>
-        /// Возвращает новую вьюмодель с базовыми значениями.
-        /// </summary>
-        private static ViewModel<UnitAttributesMultipliers> CreateNewModel()
-        {
-            var unitAttributesMultipliers = ScriptableObject.CreateInstance<UnitAttributesMultipliers>();
-            const string defaultName = "New";
-            var assetPath = $"{Utils.ShipStatsDataPath}/{defaultName}.asset";
-
-            AssetDatabase.CreateAsset(unitAttributesMultipliers,
-                EditorUtils.GetUniqueAssetName<UnitAttributesMultipliers>(assetPath));
-
-            var windowProperty = new ViewModel<UnitAttributesMultipliers>
-            {
-                Model = unitAttributesMultipliers,
-                ActionOnUpdate = ActionOnUpdate.Add
-            };
-
-            windowProperty.Model.Type = defaultName;
-            return windowProperty;
         }
     }
 }

@@ -1754,6 +1754,10 @@ Prefab:
       propertyPath: m_Name
       value: ScenesManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1913764498774578, guid: bd03b26c73d063d4eada5a2f40fd267c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd03b26c73d063d4eada5a2f40fd267c, type: 2}
   m_IsPrefabParent: 0

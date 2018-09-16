@@ -15,6 +15,17 @@ namespace Editor
     public static class EditorUtils
     {
         /// <summary>
+        /// Возвращает префаб инстанса.
+        /// </summary>
+        /// <param name="instance">Инстанс префаба.</param>
+        public static GameObject GetPrefab(this Object instance)
+        {
+            var prefabRoot = PrefabUtility.GetPrefabParent(instance);
+            var assetPath = AssetDatabase.GetAssetPath(prefabRoot);
+            return AssetDatabase.LoadAssetAtPath<GameObject>(assetPath).gameObject;
+        }
+
+        /// <summary>
         /// Возвращает уникальное имя файла по пути.
         /// </summary>
         /// <param name="assetPath">Путь по умолчанию.</param>
@@ -39,18 +50,7 @@ namespace Editor
             return newAssetPath;
         }
 
-        /// <summary>
-        /// Возвращает префаб инстанса.
-        /// </summary>
-        /// <param name="instance">Инстанс префаба.</param>
-        public static GameObject GetPrefab(this Object instance)
-        {
-            var prefabRoot = PrefabUtility.GetPrefabParent(instance);
-            var assetPath = AssetDatabase.GetAssetPath(prefabRoot);
-            return AssetDatabase.LoadAssetAtPath<GameObject>(assetPath).gameObject;
-        }
 
-        
         /// <summary>
         /// Отображает строку с заголовком и полем для ввода текста.
         /// </summary>
@@ -63,17 +63,17 @@ namespace Editor
             ShowInput(labelText, () => result = EditorGUILayout.TextField(value));
             return result;
         }
-        
+
         /// <summary>
         /// Отображает строку с заголовком и полем для объекта.
         /// </summary>
         /// <param name="labelText">Текст заголовка.</param>
         /// <param name="value">Значение поля для ввода.</param>
         /// <returns>Строка ввода.</returns>
-        public static T ShowLine<T>(string labelText, T value) where T: Object
+        public static T ShowLine<T>(string labelText, T value) where T : Object
         {
             var result = value;
-            ShowInput(labelText, () => result = (T)EditorGUILayout.ObjectField(value, typeof(T), false));
+            ShowInput(labelText, () => result = (T) EditorGUILayout.ObjectField(value, typeof(T), false));
             return result;
         }
 

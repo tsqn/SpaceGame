@@ -13,6 +13,20 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     /// <summary>
+    /// Удаляет всех юнитов со сцены.
+    /// </summary>
+    public static void ClearScene()
+    {
+        var units = FindObjectsOfType<Unit>();
+
+        foreach (var unit in units)
+        {
+            unit.gameObject.SetActive(false);
+            DestroyImmediate(unit.gameObject);
+        }
+    }
+
+    /// <summary>
     /// Загружает указанный уровень.
     /// </summary>
     /// <param name="levelUnitPositions">Описание уровня.</param>
@@ -21,7 +35,7 @@ public class SceneLoader : MonoBehaviour
         SceneManager.GetActiveScene();
 
         ClearScene();
-        
+
         FillScene(levelUnitPositions);
     }
 
@@ -34,26 +48,12 @@ public class SceneLoader : MonoBehaviour
         foreach (var unitPositionModel in levelUnitPositions.UnitPositionModels)
         {
 #if UNITY_EDITOR
-            var unit = (GameObject)PrefabUtility.InstantiatePrefab(unitPositionModel.GameObject);
+            var unit = (GameObject) PrefabUtility.InstantiatePrefab(unitPositionModel.GameObject);
 #else
             var unit = (GameObject)Instantiate(unitPositionModel.GameObject);
 #endif
             unit.transform.position = unitPositionModel.Position;
             unit.transform.rotation = unitPositionModel.Rotation;
-        }
-    }
-
-    /// <summary>
-    /// Удаляет всех юнитов со сцены.
-    /// </summary>
-    public static void ClearScene()
-    {
-        var units = FindObjectsOfType<Unit>();
-
-        foreach (var unit in units)
-        {
-            unit.gameObject.SetActive(false);
-            DestroyImmediate (unit.gameObject);
         }
     }
 }

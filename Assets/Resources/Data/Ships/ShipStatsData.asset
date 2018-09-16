@@ -11,5 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcad099de737d554f88b42a7ba9e382b, type: 3}
   m_Name: ShipStatsData
   m_EditorClassIdentifier: 
-  ShipAttributesMultipliers: []
-  ShipBaseAttributes: []
+  ShipAttributesMultipliers:
+  - {fileID: 11400000, guid: 0341761f5611bd8449795ca813d435b4, type: 2}
+  - {fileID: 11400000, guid: 78a6aba21d729dc40814a65dc762c2a2, type: 2}
+  - {fileID: 11400000, guid: eccdc64979f3e004ab1d633bd305d486, type: 2}
+  - {fileID: 11400000, guid: ad9683633216ff548af223e24d56aed9, type: 2}
+  - {fileID: 11400000, guid: 46834d1ee5a4fc047a93901831cedfba, type: 2}
+  - {fileID: 11400000, guid: 898ad4b0cbb72104d90a423717a0d907, type: 2}
+  - {fileID: 11400000, guid: cd0493450e8025d40915f4d1145e5f3f, type: 2}
+  ShipBaseAttributes:
+  - {fileID: 11400000, guid: 4739615f81b4a344fa6c231a1bc8ad77, type: 2}
+  - {fileID: 11400000, guid: 80e4a89cabc3584419b655f4d3d0988b, type: 2}

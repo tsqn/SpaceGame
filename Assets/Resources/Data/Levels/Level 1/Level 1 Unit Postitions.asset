@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33798de3181e4fb2ae38efd9b20a0185, type: 3}
-  m_Name: Level 1
+  m_Name: Level 1 Unit Postitions
   m_EditorClassIdentifier: 
-  Name: Level 1
+  Name: Level 1 Unit Postitions
   UnitPositionModels:
   - GameObject: {fileID: 1934709087002358, guid: cb9ea51a97606c04eae60b81455af12f,
       type: 2}

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819840f59d7e4accaf287b921ea89699, type: 3}
+  m_Name: Level 2
+  m_EditorClassIdentifier: 
+  Background: {fileID: 2800000, guid: 500d2373762a92746aa9b6ac1f880502, type: 3}
+  Name: 
+  UnitPositions: {fileID: 11400000, guid: ff5b1a6606f54b648ba91c4fbd5d5df9, type: 2}

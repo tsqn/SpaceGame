@@ -29,6 +29,14 @@ namespace Editor.LevelEditor
         }
 
         /// <summary>
+        /// Очищает текущую сцену от юнитов.
+        /// </summary>
+        private void Clear()
+        {
+            SceneLoader.ClearScene();
+        }
+
+        /// <summary>
         /// Создает новый объект уровня.
         /// </summary>
         private void CreateLevel()
@@ -72,7 +80,7 @@ namespace Editor.LevelEditor
             }
 
             var oldFilePath = AssetDatabase.GetAssetPath(_levelUnitPositions);
-            
+
             AssetDatabase.RenameAsset(oldFilePath, _levelNameText);
             AssetDatabase.SaveAssets();
         }
@@ -98,20 +106,11 @@ namespace Editor.LevelEditor
 
             if (GUILayout.Button("Clear Current Level"))
                 Clear();
-            
+
             GUILayout.Space(10);
 
             if (GUILayout.Button("Edit Current Level"))
                 EditLevel();
-            
-        }
-
-        /// <summary>
-        /// Очищает текущую сцену от юнитов.
-        /// </summary>
-        private void Clear()
-        {
-            SceneLoader.ClearScene();
         }
     }
 }

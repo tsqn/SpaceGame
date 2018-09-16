@@ -7,17 +7,6 @@
     public static class EditorShortcuts
     {
         /// <summary>
-        /// Блокировка инспектора.
-        /// </summary>
-        [MenuItem("Tools/Toggle Inspector Lock %t")]
-        // Ctrl + T
-        private static void ToggleInspectorLock()
-        {
-            ActiveEditorTracker.sharedTracker.isLocked = !ActiveEditorTracker.sharedTracker.isLocked;
-            ActiveEditorTracker.sharedTracker.ForceRebuild();
-        }
-        
-        /// <summary>
         /// Перезагрузка сцены.
         /// </summary>
         [MenuItem("Tools/Reload Scene %q")]
@@ -31,6 +20,17 @@
             }
 
             EditorApplication.isPlaying = true;
+        }
+
+        /// <summary>
+        /// Блокировка инспектора.
+        /// </summary>
+        [MenuItem("Tools/Toggle Inspector Lock %t")]
+        // Ctrl + T
+        private static void ToggleInspectorLock()
+        {
+            ActiveEditorTracker.sharedTracker.isLocked = !ActiveEditorTracker.sharedTracker.isLocked;
+            ActiveEditorTracker.sharedTracker.ForceRebuild();
         }
     }
 }

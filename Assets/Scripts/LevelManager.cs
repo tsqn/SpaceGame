@@ -21,16 +21,16 @@ public class LevelManager : MonoBehaviour
     /// Точка спавна игрока.
     /// </summary>
     public PlayerSpawnPoint PlayerSpawnPoint;
-    
-    /// <summary>
-    /// Список юнитов.
-    /// </summary>
-    public UnitsCollection UnitsCollection;
-    
+
     /// <summary>
     /// Расположение юнитов.
     /// </summary>
     public LevelUnitPositions UnitPositions;
+
+    /// <summary>
+    /// Список юнитов.
+    /// </summary>
+    public UnitsCollection UnitsCollection;
 
     private void Start()
     {
