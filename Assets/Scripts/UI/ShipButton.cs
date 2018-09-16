@@ -1,12 +1,12 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
-
-namespace UI
+﻿namespace UI
 {
     using Entities;
 
     using Managers;
+
+    using UnityEngine;
+    using UnityEngine.Events;
+    using UnityEngine.UI;
 
     /// <summary>
     /// Кнопка выбора корабля.

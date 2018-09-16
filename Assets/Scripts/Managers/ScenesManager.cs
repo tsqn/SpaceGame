@@ -1,12 +1,12 @@
-using System;
-using System.Collections;
-
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
 namespace Managers
 {
+    using System;
+    using System.Collections;
+
+    using UnityEngine;
+    using UnityEngine.SceneManagement;
+    using UnityEngine.UI;
+
     /// <summary>
     /// Менеджер сцен.
     /// </summary>

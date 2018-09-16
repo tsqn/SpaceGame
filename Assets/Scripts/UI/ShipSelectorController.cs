@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-using UnityEngine;
-
-namespace UI
+﻿namespace UI
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
     using Managers;
+
+    using UnityEngine;
 
     /// <summary>
     /// Контроллер элемента выбора корабля.

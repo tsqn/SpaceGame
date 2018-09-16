@@ -1,10 +1,10 @@
-﻿using Data;
-
-using UnityEngine;
-
-namespace Managers
+﻿namespace Managers
 {
     using Entities;
+
+    using Models;
+
+    using UnityEngine;
 
     /// <summary>
     /// Менеджер уровня.

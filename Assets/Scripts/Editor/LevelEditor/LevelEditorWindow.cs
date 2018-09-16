@@ -2,11 +2,11 @@ namespace Editor.LevelEditor
 {
     using System.Collections.Generic;
 
-    using Data;
-
     using Entities;
 
     using Managers;
+
+    using Models;
 
     using UnityEditor;
 
@@ -48,10 +48,10 @@ namespace Editor.LevelEditor
             var levelUnitPositions = CreateInstance<LevelUnitPositions>();
             levelUnitPositions.Name = _levelNameText;
 
-            levelUnitPositions.UnitPositionModels = new List<UnitPositionModel>();
+            levelUnitPositions.UnitPositionModels = new List<UnitPosition>();
             foreach (var unit in units)
             {
-                levelUnitPositions.UnitPositionModels.Add(new UnitPositionModel
+                levelUnitPositions.UnitPositionModels.Add(new UnitPosition
                 {
                     GameObject = unit.GetPrefab(),
                     Rotation = unit.transform.rotation,
@@ -70,10 +70,10 @@ namespace Editor.LevelEditor
         {
             var units = FindObjectsOfType<Unit>();
             _levelUnitPositions.Name = _levelNameText;
-            _levelUnitPositions.UnitPositionModels = new List<UnitPositionModel>();
+            _levelUnitPositions.UnitPositionModels = new List<UnitPosition>();
             foreach (var unit in units)
             {
-                _levelUnitPositions.UnitPositionModels.Add(new UnitPositionModel
+                _levelUnitPositions.UnitPositionModels.Add(new UnitPosition
                 {
                     GameObject = unit.GetPrefab(),
                     Rotation = unit.transform.rotation,

@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-
-using Entities;
-
-using UnityEngine;
-
-namespace Managers
+﻿namespace Managers
 {
+    using System.Collections.Generic;
+
+    using Entities;
+
+    using UnityEngine;
+
     /// <summary>
     /// Менеджер пулов объектов.
     /// </summary>
@@ -44,8 +44,34 @@ namespace Managers
 
             objectToSpawn.SetActive(true);
             objectToSpawn.transform.position = position;
+            
             objectToSpawn.transform.rotation = rotation;
 
+            objectToSpawn.GetComponentInParent<IPoolable>()?.OnObjectSpawn();
+
+            _poolDictionary[sid].Enqueue(objectToSpawn);
+
+            return objectToSpawn;
+        }
+        
+        /// <summary>
+        /// Спавнит объект из пула.
+        /// </summary>
+        /// <param name="sid">Строковый идентификатор.</param>
+        /// <param name="position">Позиция.</param>
+        public GameObject SpawnFromPool(string sid, Vector3 position)
+        {
+            if (!_poolDictionary.ContainsKey(sid))
+            {
+                Debug.LogWarning($"Poll with tag: {sid} doesn't exist");
+                return null;
+            }
+
+            var objectToSpawn = _poolDictionary[sid].Dequeue();
+
+            objectToSpawn.SetActive(true);
+            objectToSpawn.transform.position = position;
+            
             objectToSpawn.GetComponentInParent<IPoolable>()?.OnObjectSpawn();
 
             _poolDictionary[sid].Enqueue(objectToSpawn);

@@ -1,6 +1,6 @@
 namespace Editor.LevelsManager
 {
-    using Data;
+    using Models;
 
     using UnityEditor;
 

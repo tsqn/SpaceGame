@@ -1,9 +1,9 @@
-﻿using System;
-
-using UnityEngine;
-
-namespace Managers
+﻿namespace Managers
 {
+    using System;
+
+    using UnityEngine;
+
     /// <summary>
     /// Пул объектов.
     /// </summary>
@@ -14,7 +14,7 @@ namespace Managers
         /// Префаб.
         /// </summary>
         public GameObject Prefab;
-        
+
         /// <summary>
         /// Колличество объектов в пуле.
         /// </summary>

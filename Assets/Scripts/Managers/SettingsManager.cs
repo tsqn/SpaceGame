@@ -1,7 +1,7 @@
-using UnityEngine;
-
 namespace Managers
 {
+    using UnityEngine;
+
     /// <summary>
     /// Глобальные настройки.
     /// </summary>

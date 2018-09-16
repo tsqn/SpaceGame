@@ -1,14 +1,14 @@
-using Data;
-
-using Entities;
-
-using UnityEditor;
-
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
 namespace Managers
 {
+    using Entities;
+
+    using Models;
+
+    using UnityEditor;
+
+    using UnityEngine;
+    using UnityEngine.SceneManagement;
+
     /// <summary>
     /// Загрузчик сцен.
     /// </summary>
@@ -59,12 +59,15 @@ namespace Managers
                 else
                 {
                     ObjectsPoolsManager.Instance.SpawnFromPool(
-                        ((GameObject) unitPositionModel.GameObject).GetComponent<Unit>().Sid, unitPositionModel.Position,
+                        ((GameObject) unitPositionModel.GameObject).GetComponent<Unit>().Sid,
+                        unitPositionModel.Position,
                         unitPositionModel.Rotation);
                 }
+
 #else
-            ObjectPooler.Instance.SpawnFromPool(((GameObject) unitPositionModel.GameObject).GetComponent<Unit>().Sid,
-                unitPositionModel.Position, unitPositionModel.Rotation);
+                ObjectsPoolsManager.Instance.SpawnFromPool(
+                    ((GameObject) unitPositionModel.GameObject).GetComponent<Unit>().Sid,
+                    unitPositionModel.Position, unitPositionModel.Rotation);
 #endif
             }
         }

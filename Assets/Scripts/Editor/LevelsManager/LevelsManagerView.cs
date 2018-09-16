@@ -2,7 +2,7 @@ namespace Editor.LevelsManager
 {
     using System.Collections.Generic;
 
-    using Data;
+    using Models;
 
     using UnityEditor;
 

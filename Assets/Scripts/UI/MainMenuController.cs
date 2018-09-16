@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-
-namespace UI
+﻿namespace UI
 {
     using Managers;
+
+    using UnityEngine;
 
     /// <summary>
     /// Контроллер главного меню.

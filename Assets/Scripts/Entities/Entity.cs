@@ -8,7 +8,7 @@
         /// Строковый идетификатор Сущности.
         /// </summary>
         public string Sid;
-        
+
         public virtual void OnObjectSpawn()
         {
         }

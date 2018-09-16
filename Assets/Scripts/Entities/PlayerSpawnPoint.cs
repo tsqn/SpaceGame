@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-
-namespace Entities
+﻿namespace Entities
 {
+    using UnityEngine;
+
     /// <summary>
     /// Точка спавна игрока.
     /// </summary>

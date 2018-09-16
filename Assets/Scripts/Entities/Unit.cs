@@ -2,7 +2,7 @@
 {
     using System.Linq;
 
-    using Data;
+    using Models;
 
     using UnityEngine;
 
@@ -34,6 +34,24 @@
         /// </summary>
         [SerializeField]
         private float _currentShootingSpeed;
+
+        /// <summary>
+        /// Оружие юнита.
+        /// </summary>
+        public Weapon Weapon;
+
+        public void ReceiveDamage(float damage)
+        {
+            _currentHealth -= damage;
+
+            if (_currentHealth <= 0)
+                Death();
+        }
+
+        protected virtual void Death()
+        {
+            gameObject.SetActive(false);
+        }
 
         /// <summary>
         /// Инициализация характеристик ко-робля.

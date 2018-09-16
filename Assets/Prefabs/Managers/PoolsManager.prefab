@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1688621124956680}
+  m_IsPrefabParent: 1
+--- !u!1 &1688621124956680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4199836535435226}
+  - component: {fileID: 114456210020237358}
+  m_Layer: 0
+  m_Name: PoolsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4199836535435226
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1688621124956680}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114456210020237358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1688621124956680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04aa2058c36aad24d81c225d07856fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pools:
+  - Prefab: {fileID: 1310969163965298, guid: d81bbcd9f446fc84ea056e9079eda75c, type: 2}
+    Size: 5
+  - Prefab: {fileID: 1265890507376556, guid: 5f43bf315aa62734981ee8da437aeb74, type: 2}
+    Size: 5
+  - Prefab: {fileID: 1271550637415628, guid: 65e9b5e23e04be9409e2a67936a56283, type: 2}
+    Size: 5
+  - Prefab: {fileID: 1934709087002358, guid: cb9ea51a97606c04eae60b81455af12f, type: 2}
+    Size: 5
+  - Prefab: {fileID: 1482489628756348, guid: 96ee205c89e8e6c4586a66ad030fedc2, type: 2}
+    Size: 5
+  - Prefab: {fileID: 1228593759699296, guid: 5f97401b7655b7a45a85e324ab110044, type: 2}
+    Size: 5
+  - Prefab: {fileID: 1510242765810438, guid: 5f0e16917efef884c8ccdc94e80c75fe, type: 2}
+    Size: 5
+  - Prefab: {fileID: 1719678357596936, guid: 6913f47543bae814f8f28707872e0c43, type: 2}
+    Size: 20
