@@ -1,8 +1,5 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Text.RegularExpressions;
-
-using UnityEditor;
 
 /// <summary>
 /// Утилитарные методы.
@@ -17,23 +14,7 @@ public static class Utils
     /// <summary>
     /// Возвращает путь до папки с таддными.
     /// </summary>
-    public static string DataRoot
-    {
-        get
-        {
-            //TODO Разобраться с копипастой.
-#if UNITY_EDITOR
-            var guids = AssetDatabase.FindAssets("PresentationWindow t:Script");
-            if (guids.Length == 0)
-                return DEFAULT_PACKAGE_ROOT;
-
-            var path = AssetDatabase.GUIDToAssetPath(guids[0]);
-            return path.Substring(0, path.IndexOf("Editor/PresentationWindow.cs", StringComparison.Ordinal));
-#else
-				return DEFAULT_PACKAGE_ROOT;
-#endif
-        }
-    }
+    public static string DataRoot => DEFAULT_PACKAGE_ROOT;
 
     /// <summary>
     /// Возвращает путь до папки с данными уровней.
