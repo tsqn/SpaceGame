@@ -139,6 +139,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4291513520621682}
   - component: {fileID: 114033169945435080}
+  - component: {fileID: 54937193908248714}
+  - component: {fileID: 136830719011980802}
   m_Layer: 0
   m_Name: Enemy 1.2
   m_TagString: Untagged
@@ -2157,6 +2159,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1176456405058674}
   m_Mesh: {fileID: 4300046, guid: e9b52fd00b69b5d41a0bf9a66be4fbd4, type: 3}
+--- !u!54 &54937193908248714
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265890507376556}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &114033169945435080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2169,5 +2186,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sid: Enemy 1.2
-  BaseShipStats: {fileID: 0}
-  ShipStatsMultipliers: {fileID: 0}
+  _currentHealth: 0
+  _currentMobility: 0
+  _currentMovingSpeed: 0
+  _currentShootingSpeed: 0
+  Weapon: {fileID: 0}
+--- !u!136 &136830719011980802
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265890507376556}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 50
+  m_Height: 250
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}

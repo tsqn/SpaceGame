@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4902627061616978}
   - component: {fileID: 114625797126460194}
+  - component: {fileID: 54896288169909666}
+  - component: {fileID: 136242180780755244}
   m_Layer: 0
   m_Name: Enemy 3.5
   m_TagString: Untagged
@@ -186,6 +188,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1669743339762638}
   m_Mesh: {fileID: 4300000, guid: ed0ce04eaa094f144bad4482d1212d30, type: 3}
+--- !u!54 &54896288169909666
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1254830055285928}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &114625797126460194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,5 +215,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sid: Enemy 3.5
-  BaseShipStats: {fileID: 0}
-  ShipStatsMultipliers: {fileID: 0}
+  _currentHealth: 0
+  _currentMobility: 0
+  _currentMovingSpeed: 0
+  _currentShootingSpeed: 0
+  Weapon: {fileID: 0}
+--- !u!136 &136242180780755244
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1254830055285928}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 40
+  m_Height: 150
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
