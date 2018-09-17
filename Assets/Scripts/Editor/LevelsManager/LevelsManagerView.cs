@@ -38,11 +38,11 @@ namespace Editor.LevelsManager
         {
             EditorGUILayout.BeginVertical();
 
-            model.Name = EditorUtils.ShowLine(nameof(Level.Name), model.Name);
+            model.Name = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(Level.Name)), model.Name);
 
-            model.UnitPositions = EditorUtils.ShowLine(nameof(Level.UnitPositions), model.UnitPositions);
+            model.UnitPositions = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(Level.UnitPositions)), model.UnitPositions);
 
-            model.Background = EditorUtils.ShowLine(nameof(Level.Background), model.Background);
+            model.Background = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(Level.Background)), model.Background);
 
             EditorGUILayout.EndVertical();
         }

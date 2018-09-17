@@ -122,7 +122,7 @@ namespace Editor
         /// <param name="model">Модель.</param>
         protected virtual void ShowModel(T model)
         {
-            EditorUtils.ShowLine(nameof(UnitAttributesMultipliers.Type), model.ToString());
+            EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(UnitAttributesMultipliers.Type)), model.ToString());
         }
 
         /// <summary>

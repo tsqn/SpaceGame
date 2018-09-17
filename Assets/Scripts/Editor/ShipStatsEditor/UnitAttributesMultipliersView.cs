@@ -38,18 +38,18 @@ namespace Editor.ShipStatsEditor
         {
             EditorGUILayout.BeginVertical();
 
-            model.Type = EditorUtils.ShowLine(nameof(UnitAttributesMultipliers.Type), model.Type);
+            model.Type = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(UnitAttributesMultipliers.Type)), model.Type);
 
-            model.Health = EditorUtils.ShowLine(nameof(UnitAttributesMultipliers.Health), model.Health);
+            model.Health = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(UnitAttributesMultipliers.Health)), model.Health);
 
-            model.ShootSpeed = EditorUtils.ShowLine(nameof(UnitAttributesMultipliers.ShootSpeed), model.ShootSpeed);
+            model.ShootSpeed = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(UnitAttributesMultipliers.ShootSpeed)), model.ShootSpeed);
 
-            model.MoveSpeed = EditorUtils.ShowLine(nameof(UnitAttributesMultipliers.MoveSpeed), model.MoveSpeed);
+            model.MoveSpeed = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(UnitAttributesMultipliers.MoveSpeed)), model.MoveSpeed);
 
-            model.Mobility = EditorUtils.ShowLine(nameof(UnitAttributesMultipliers.Mobility), model.Mobility);
+            model.Mobility = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(UnitAttributesMultipliers.Mobility)), model.Mobility);
 
             model.WeaponDamage =
-                EditorUtils.ShowLine(nameof(UnitAttributesMultipliers.WeaponDamage), model.WeaponDamage);
+                EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(UnitAttributesMultipliers.WeaponDamage)), model.WeaponDamage);
 
             EditorGUILayout.EndVertical();
         }

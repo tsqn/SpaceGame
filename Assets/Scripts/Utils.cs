@@ -52,12 +52,12 @@ public static class Utils
     /// <returns>"Word1 Word2"</returns>
     public static string SplitByCamelCase(string inputString)
     {
-        var result = "";
+        var result = inputString;
 
         var splitString = Regex.Split(inputString, @"(?<!^)(?=[A-Z])").ToList();
 
         if (splitString.Count > 1 && !result.Contains(" "))
-            result = splitString.Aggregate(result, (current, word) => current + $"{word} ");
+            result = splitString.Aggregate("", (current, word) => current + $"{word} ");
 
 
         return result.Trim();
