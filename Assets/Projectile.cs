@@ -1,4 +1,6 @@
-﻿using Entities;
+﻿using System;
+
+using Entities;
 
 using Managers;
 
@@ -40,6 +42,11 @@ public class Projectile : Entity
     public float Speed;
 
     /// <summary>
+    /// Тип поражаемой цели.
+    /// </summary>
+    public Type Target;
+
+    /// <summary>
     /// Запуск снаряда.
     /// </summary>
     public void Launch()
@@ -78,15 +85,28 @@ public class Projectile : Entity
         Disable();
     }
 
+    /// <summary>
+    /// Возвращает цель для попадания.
+    /// </summary>
+    /// <param name="collision">Колизия.</param>
+    private Unit GetHitTarget(Collider collision)
+    {
+        if (Target == typeof(Enemy))
+            return collision.gameObject.GetComponent<Enemy>();
+        if (Target == typeof(Player))
+            return collision.gameObject.GetComponent<Player>();
+        return null;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
-        var unit = other.gameObject.GetComponent<Unit>();
-
-        if (unit == null)
+        var target = GetHitTarget(other);
+        
+        if (target == null)
             return;
-
-        unit.ReceiveDamage(Damage);
+        
+        target.ReceiveDamage(Damage);
         Explode();
     }
 
