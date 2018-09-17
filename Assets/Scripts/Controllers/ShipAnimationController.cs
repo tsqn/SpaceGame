@@ -6,8 +6,6 @@
 
     public class ShipAnimationController : MonoBehaviour
     {
-        private Animator _animator;
-
         public ShipMovementState MovementState;
 
         public void UpdateAnimation(ShipMovementState state)
@@ -18,11 +16,6 @@
 
         private void Idle()
         {
-        }
-
-        private void Start()
-        {
-            _animator = GetComponent<Animator>();
         }
 
         private void StrifeLeft()

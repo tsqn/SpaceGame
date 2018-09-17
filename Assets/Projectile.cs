@@ -11,11 +11,28 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Projectile : Entity
 {
+    /// <summary>
+    /// Оставшееся время жизни.
+    /// </summary>
+    private float _currentLifeTime;
+
     [SerializeField]
     private Rigidbody _rigidbody;
+
+    /// <summary>
+    /// Урон снаряда.
+    /// </summary>
     public float Damage;
 
+    /// <summary>
+    /// Звук попадания.
+    /// </summary>
     public AudioClip HitClip;
+
+    /// <summary>
+    /// Время жизни станярда.
+    /// </summary>
+    public float LifeTime;
 
     /// <summary>
     /// Скорость полёта.
@@ -27,12 +44,27 @@ public class Projectile : Entity
     /// </summary>
     public void Launch()
     {
-        _rigidbody.AddForce(Vector3.forward * Speed, ForceMode.Impulse);
+        _rigidbody.AddForce(transform.rotation * Vector3.right * Speed, ForceMode.Impulse);
     }
 
     public override void OnObjectSpawn()
     {
+        _rigidbody.velocity = Vector3.zero;
+        _currentLifeTime = LifeTime;
         Launch();
+    }
+
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
+
+    /// <summary>
+    /// Отключение снаряда.
+    /// </summary>
+    private void Disable()
+    {
+        gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -41,10 +73,9 @@ public class Projectile : Entity
     private void Explode()
     {
         AudioManager.Instance.PlayOneShot(HitClip);
-        var vfx = ObjectsPoolsManager.Instance.SpawnFromPool("RocketExplosionVFX", transform.position,
+        ObjectsPoolsManager.Instance.SpawnFromPool("RocketExplosionVFX", transform.position,
             transform.rotation);
-        vfx.GetComponent<ParticleSystem>().Play();
-        gameObject.SetActive(false);
+        Disable();
     }
 
 
@@ -59,8 +90,11 @@ public class Projectile : Entity
         Explode();
     }
 
-    private void Awake()
+    private void Update()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        _currentLifeTime -= Time.deltaTime;
+
+        if (_currentLifeTime < 0)
+            Disable();
     }
 }

@@ -88,6 +88,9 @@
 
             if (Application.isPlaying)
                 DontDestroyOnLoad(gameObject);
+            
+            if (_poolDictionary == null)
+                InitializePolls();
         }
 
         /// <summary>
@@ -110,11 +113,6 @@
 
                 _poolDictionary.Add(pool.Prefab.GetComponent<Entity>().Sid, objectPool);
             }
-        }
-
-        private void Start()
-        {
-            InitializePolls();
         }
     }
 }

@@ -219,7 +219,7 @@ MonoBehaviour:
   _currentMobility: 0
   _currentMovingSpeed: 0
   _currentShootingSpeed: 0
-  Weapon: {fileID: 0}
+  Weapons: []
 --- !u!136 &136223887097940234
 CapsuleCollider:
   m_ObjectHideFlags: 1

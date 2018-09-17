@@ -1,5 +1,7 @@
 ﻿namespace Entities
 {
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     using Models;
@@ -11,6 +13,8 @@
     /// </summary>
     public class Unit : Entity
     {
+        private float _cooldown;
+
         /// <summary>
         /// Текущиее здоровье юнита.
         /// </summary>
@@ -38,8 +42,14 @@
         /// <summary>
         /// Оружие юнита.
         /// </summary>
-        public Weapon Weapon;
+        public List<Weapon> Weapons;
 
+        private float _weaponDamage;
+
+        /// <summary>
+        /// Получение урона.
+        /// </summary>
+        /// <param name="damage">Колличество урона.</param>
         public void ReceiveDamage(float damage)
         {
             _currentHealth -= damage;
@@ -48,9 +58,40 @@
                 Death();
         }
 
+        /// <summary>
+        /// Смерть юнита.
+        /// </summary>
         protected virtual void Death()
         {
             gameObject.SetActive(false);
+        }
+
+        /// <summary>
+        /// Выстрел.
+        /// </summary>
+        protected void Shoot()
+        {
+            if (!CanShoot())
+                return;
+
+            Weapons.ForEach(weapon => weapon.Shoot());
+            _cooldown = 1 / _currentShootingSpeed;
+            StartCoroutine(Reload());
+        }
+
+        private void Awake()
+        {
+            InitializeAttributes();
+            Weapons = GetComponentsInChildren<Weapon>().ToList();
+            Weapons.ForEach(weapon => weapon.Damage = _weaponDamage);
+        }
+
+        /// <summary>
+        /// Проверка на возможность выстрела.
+        /// </summary>
+        private bool CanShoot()
+        {
+            return _cooldown <= 0;
         }
 
         /// <summary>
@@ -73,11 +114,19 @@
             _currentShootingSpeed = baseShipStats.ShootSpeed * shipStatsMultipliers.ShootSpeed;
             _currentMovingSpeed = baseShipStats.MoveSpeed * shipStatsMultipliers.MoveSpeed;
             _currentMobility = baseShipStats.Mobility * shipStatsMultipliers.Mobility;
+            _weaponDamage = shipStatsMultipliers.WeaponDamage;
         }
 
-        private void Start()
+        /// <summary>
+        /// Перезарядка оружия.
+        /// </summary>
+        private IEnumerator Reload()
         {
-            InitializeAttributes();
+            while (_cooldown >= 0)
+            {
+                _cooldown -= Time.deltaTime;
+                yield return null;
+            }
         }
     }
 }
