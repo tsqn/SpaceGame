@@ -1,5 +1,6 @@
 ﻿namespace Managers
 {
+    using System;
     using System.Collections.Generic;
 
     using Entities;
@@ -77,6 +78,17 @@
             _poolDictionary[sid].Enqueue(objectToSpawn);
 
             return objectToSpawn;
+        }
+
+        /// <summary>
+        /// Спавнит партикл из пула и проигрывает его.
+        /// </summary>
+        /// <param name="sid">Строковый индетификатор.</param>
+        /// <param name="position">Позиция</param>
+        public void SpawnParticleFromPool(string sid, Vector3 position)
+        {
+            var particle = Instance.SpawnFromPool("RocketExplosionVFX", position).GetComponent<ParticleSystem>();
+            particle.Play(true);
         }
 
         private void Awake()

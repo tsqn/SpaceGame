@@ -73,8 +73,8 @@ MonoBehaviour:
   _rigidbody: {fileID: 0}
   Damage: 10
   HitClip: {fileID: 8300000, guid: c778e2b20c076004cbd9ca73a8a69143, type: 3}
-  LifeTime: 2
-  Speed: 10
+  LifeTime: 4
+  Speed: 5
 --- !u!136 &136703368239083848
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -12,13 +12,19 @@ MonoBehaviour:
   m_Name: ShipStatsData
   m_EditorClassIdentifier: 
   ShipAttributesMultipliers:
-  - {fileID: 11400000, guid: 0341761f5611bd8449795ca813d435b4, type: 2}
-  - {fileID: 11400000, guid: 78a6aba21d729dc40814a65dc762c2a2, type: 2}
-  - {fileID: 11400000, guid: eccdc64979f3e004ab1d633bd305d486, type: 2}
-  - {fileID: 11400000, guid: ad9683633216ff548af223e24d56aed9, type: 2}
-  - {fileID: 11400000, guid: 46834d1ee5a4fc047a93901831cedfba, type: 2}
-  - {fileID: 11400000, guid: 898ad4b0cbb72104d90a423717a0d907, type: 2}
   - {fileID: 11400000, guid: cd0493450e8025d40915f4d1145e5f3f, type: 2}
+  - {fileID: 11400000, guid: 898ad4b0cbb72104d90a423717a0d907, type: 2}
+  - {fileID: 11400000, guid: 46834d1ee5a4fc047a93901831cedfba, type: 2}
+  - {fileID: 11400000, guid: 04807e3025980af48a2da8271ac5aff5, type: 2}
+  - {fileID: 11400000, guid: 0f1a287b6d90535429ac407edf31f6e4, type: 2}
+  - {fileID: 11400000, guid: ad9683633216ff548af223e24d56aed9, type: 2}
+  - {fileID: 11400000, guid: eccdc64979f3e004ab1d633bd305d486, type: 2}
+  - {fileID: 11400000, guid: 78a6aba21d729dc40814a65dc762c2a2, type: 2}
+  - {fileID: 11400000, guid: 0341761f5611bd8449795ca813d435b4, type: 2}
+  - {fileID: 11400000, guid: 80670bf1189f4454c9d09fc7d75c4cca, type: 2}
+  - {fileID: 11400000, guid: a37e3a7599b0bfe42a3347541414d520, type: 2}
+  - {fileID: 11400000, guid: fd11cfd0430912c4eb8bd53d00f221e3, type: 2}
+  - {fileID: 11400000, guid: 720e99d149bf6d34b9c93c57c6fad7c7, type: 2}
   ShipBaseAttributes:
-  - {fileID: 11400000, guid: 4739615f81b4a344fa6c231a1bc8ad77, type: 2}
   - {fileID: 11400000, guid: 80e4a89cabc3584419b655f4d3d0988b, type: 2}
+  - {fileID: 11400000, guid: 4739615f81b4a344fa6c231a1bc8ad77, type: 2}

@@ -567,6 +567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sid: Enemy 1.1
+  _deathClip: {fileID: 8300000, guid: a7a842545fdd75948b05baaffdb18a43, type: 3}
   _currentHealth: 0
   _currentMobility: 0
   _currentMovingSpeed: 0
@@ -583,9 +584,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034a91aff4054bbe848a927a6a635a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 0
   Projectile: {fileID: 114125435412182620, guid: 6913f47543bae814f8f28707872e0c43,
     type: 2}
-  Damage: 0
 --- !u!114 &114935393403002068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -597,9 +598,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034a91aff4054bbe848a927a6a635a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 0
   Projectile: {fileID: 114125435412182620, guid: 6913f47543bae814f8f28707872e0c43,
     type: 2}
-  Damage: 0
 --- !u!136 &136593770069302712
 CapsuleCollider:
   m_ObjectHideFlags: 1

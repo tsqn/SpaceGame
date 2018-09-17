@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 731dcae8f6a34be88a0d86188896a0cb, type: 3}
-  m_Name: New 2
+  m_Name: Player 2
   m_EditorClassIdentifier: 
-  Health: 0
-  Mobility: 0
-  MoveSpeed: 0
-  ShootSpeed: 0
-  Type: 
-  WeaponDamage: 0
+  Health: 1
+  Mobility: 1
+  MoveSpeed: 1
+  ShootSpeed: 1
+  Type: Player 2
+  WeaponDamage: 1

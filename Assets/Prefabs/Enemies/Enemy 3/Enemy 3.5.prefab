@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sid: Enemy 3.5
+  _deathClip: {fileID: 8300000, guid: a7a842545fdd75948b05baaffdb18a43, type: 3}
   _currentHealth: 0
   _currentMobility: 0
   _currentMovingSpeed: 0

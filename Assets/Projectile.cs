@@ -80,8 +80,8 @@ public class Projectile : Entity
     private void Explode()
     {
         AudioManager.Instance.PlayOneShot(HitClip);
-        ObjectsPoolsManager.Instance.SpawnFromPool("RocketExplosionVFX", transform.position,
-            transform.rotation);
+      
+        ObjectsPoolsManager.Instance.SpawnParticleFromPool("RocketExplosionVFX", transform.position);
         Disable();
     }
 

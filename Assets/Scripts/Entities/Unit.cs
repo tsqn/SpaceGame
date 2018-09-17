@@ -1,8 +1,9 @@
 ﻿namespace Entities
 {
-    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
+
+    using Managers;
 
     using Models;
 
@@ -13,8 +14,6 @@
     /// </summary>
     public class Unit : Entity
     {
-        private float _cooldown;
-
         /// <summary>
         /// Текущиее здоровье юнита.
         /// </summary>
@@ -39,12 +38,19 @@
         [SerializeField]
         private float _currentShootingSpeed;
 
+        [SerializeField]
+        private AudioClip _deathClip;
+
+        /// <summary>
+        /// Урон оружия.
+        /// </summary>
+        [SerializeField]
+        private float _weaponDamage;
+
         /// <summary>
         /// Оружие юнита.
         /// </summary>
         public List<Weapon> Weapons;
-
-        private float _weaponDamage;
 
         /// <summary>
         /// Получение урона.
@@ -52,6 +58,12 @@
         /// <param name="damage">Колличество урона.</param>
         public void ReceiveDamage(float damage)
         {
+            var avoidChance = 100 - _currentMobility;
+            var chance = Random.Range(0, 100);
+
+            if (chance > avoidChance)
+                return;
+
             _currentHealth -= damage;
 
             if (_currentHealth <= 0)
@@ -63,6 +75,9 @@
         /// </summary>
         protected virtual void Death()
         {
+            AudioManager.Instance.PlayOneShot(_deathClip);
+            ObjectsPoolsManager.Instance.SpawnFromPool("ShipExplosionVFX", transform.position,
+                transform.rotation);
             gameObject.SetActive(false);
         }
 
@@ -71,27 +86,18 @@
         /// </summary>
         protected void Shoot()
         {
-            if (!CanShoot())
-                return;
-
             Weapons.ForEach(weapon => weapon.Shoot());
-            _cooldown = 1 / _currentShootingSpeed;
-            StartCoroutine(Reload());
         }
 
         private void Awake()
         {
             InitializeAttributes();
             Weapons = GetComponentsInChildren<Weapon>().ToList();
-            Weapons.ForEach(weapon => weapon.Damage = _weaponDamage);
-        }
-
-        /// <summary>
-        /// Проверка на возможность выстрела.
-        /// </summary>
-        private bool CanShoot()
-        {
-            return _cooldown <= 0;
+            Weapons.ForEach(weapon =>
+            {
+                weapon.Damage = _weaponDamage;
+                weapon.ShootingSpeed = _currentShootingSpeed;
+            });
         }
 
         /// <summary>
@@ -115,18 +121,6 @@
             _currentMovingSpeed = baseShipStats.MoveSpeed * shipStatsMultipliers.MoveSpeed;
             _currentMobility = baseShipStats.Mobility * shipStatsMultipliers.Mobility;
             _weaponDamage = shipStatsMultipliers.WeaponDamage;
-        }
-
-        /// <summary>
-        /// Перезарядка оружия.
-        /// </summary>
-        private IEnumerator Reload()
-        {
-            while (_cooldown >= 0)
-            {
-                _cooldown -= Time.deltaTime;
-                yield return null;
-            }
         }
     }
 }
