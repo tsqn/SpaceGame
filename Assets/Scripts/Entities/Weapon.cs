@@ -14,12 +14,12 @@
         private float _cooldown;
 
         [HideInInspector]
-        public float ShootingSpeed;
-
-        [HideInInspector]
         public float Damage;
 
         public Projectile Projectile;
+
+        [HideInInspector]
+        public float ShootingSpeed;
 
         public void Shoot()
         {

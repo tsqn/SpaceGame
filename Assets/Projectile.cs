@@ -80,7 +80,7 @@ public class Projectile : Entity
     private void Explode()
     {
         AudioManager.Instance.PlayOneShot(HitClip);
-      
+
         ObjectsPoolsManager.Instance.SpawnParticleFromPool("RocketExplosionVFX", transform.position);
         Disable();
     }
@@ -102,10 +102,10 @@ public class Projectile : Entity
     private void OnTriggerEnter(Collider other)
     {
         var target = GetHitTarget(other);
-        
+
         if (target == null)
             return;
-        
+
         target.ReceiveDamage(Damage);
         Explode();
     }

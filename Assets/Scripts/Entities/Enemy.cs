@@ -4,11 +4,6 @@
 
     public class Enemy : Unit
     {
-        private void Start()
-        {
-            StartCoroutine(EndlessShooting());
-        }
-
         /// <summary>
         /// Бесконечная стрельба.
         /// </summary>
@@ -19,6 +14,11 @@
                 Shoot();
                 yield return null;
             }
+        }
+
+        private void Start()
+        {
+            StartCoroutine(EndlessShooting());
         }
     }
 }

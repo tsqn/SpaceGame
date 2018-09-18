@@ -39,13 +39,17 @@ namespace Editor.ShipStatsEditor
 
             model.Type = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(UnitBaseAttributes.Type)), model.Type);
 
-            model.Health = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(UnitBaseAttributes.Health)), model.Health);
+            model.Health =
+                EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(UnitBaseAttributes.Health)), model.Health);
 
-            model.ShootSpeed = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(UnitBaseAttributes.ShootSpeed)), model.ShootSpeed);
+            model.ShootSpeed = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(UnitBaseAttributes.ShootSpeed)),
+                model.ShootSpeed);
 
-            model.MoveSpeed = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(UnitBaseAttributes.MoveSpeed)), model.MoveSpeed);
+            model.MoveSpeed = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(UnitBaseAttributes.MoveSpeed)),
+                model.MoveSpeed);
 
-            model.Mobility = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(UnitBaseAttributes.Mobility)), model.Mobility);
+            model.Mobility = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(UnitBaseAttributes.Mobility)),
+                model.Mobility);
 
             EditorGUILayout.EndVertical();
         }

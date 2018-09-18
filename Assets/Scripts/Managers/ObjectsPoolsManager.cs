@@ -1,6 +1,5 @@
 ﻿namespace Managers
 {
-    using System;
     using System.Collections.Generic;
 
     using Entities;
@@ -45,7 +44,7 @@
 
             objectToSpawn.SetActive(true);
             objectToSpawn.transform.position = position;
-            
+
             objectToSpawn.transform.rotation = rotation;
 
             objectToSpawn.GetComponentInParent<IPoolable>()?.OnObjectSpawn();
@@ -54,7 +53,7 @@
 
             return objectToSpawn;
         }
-        
+
         /// <summary>
         /// Спавнит объект из пула.
         /// </summary>
@@ -72,7 +71,7 @@
 
             objectToSpawn.SetActive(true);
             objectToSpawn.transform.position = position;
-            
+
             objectToSpawn.GetComponentInParent<IPoolable>()?.OnObjectSpawn();
 
             _poolDictionary[sid].Enqueue(objectToSpawn);
@@ -100,7 +99,7 @@
 
             if (Application.isPlaying)
                 DontDestroyOnLoad(gameObject);
-            
+
             if (_poolDictionary == null)
                 InitializePolls();
         }

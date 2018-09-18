@@ -40,7 +40,8 @@ namespace Editor.LevelsManager
 
             model.Name = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(Level.Name)), model.Name);
 
-            model.UnitPositions = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(Level.UnitPositions)), model.UnitPositions);
+            model.UnitPositions =
+                EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(Level.UnitPositions)), model.UnitPositions);
 
             model.Background = EditorUtils.ShowLine(Utils.SplitByCamelCase(nameof(Level.Background)), model.Background);
 
