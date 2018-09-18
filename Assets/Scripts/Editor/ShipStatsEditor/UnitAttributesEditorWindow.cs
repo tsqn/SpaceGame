@@ -49,11 +49,11 @@
                 GUILayout.Width(_unitAttributesEditorEditorWindow.position.width),
                 GUILayout.Height(_unitAttributesEditorEditorWindow.position.height));
 
-            UnitAttributes.ShipBaseAttributes = 
+            UnitAttributes.ShipBaseAttributes =
                 UnitBaseAttributesView.ViewModels.Select(model => model.Model).ToList();
             UnitAttributes.ShipAttributesMultipliers =
                 UnitAttributesMultipliersView.ViewModels.Select(model => model.Model).ToList();
-            
+
             UnitBaseAttributesView.Show();
             UnitAttributesMultipliersView.Show();
             EditorGUILayout.EndScrollView();

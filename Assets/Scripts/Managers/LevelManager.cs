@@ -1,5 +1,7 @@
 ﻿namespace Managers
 {
+    using System.Collections;
+
     using Entities;
 
     using Models;
@@ -36,8 +38,14 @@
         /// </summary>
         public UnitsCollection UnitsCollection;
 
-        private void Start()
+        /// <summary>
+        /// Загрузка уровня.
+        /// </summary>
+        private IEnumerator LoadLevel()
         {
+            while (ScenesManager.Instance.Loading)
+                yield return null;
+
             if (PlayerSpawnPoint == null)
                 PlayerSpawnPoint = FindObjectOfType<PlayerSpawnPoint>();
 
@@ -46,6 +54,11 @@
 
             var player = UnitsCollection.GetUnitPrefabBySid(SettingsManager.Instance.PlayerShipSid);
             Instantiate(player, PlayerSpawnPoint.transform.position, PlayerSpawnPoint.transform.rotation);
+        }
+
+        private void Start()
+        {
+            StartCoroutine(LoadLevel());
         }
     }
 }
