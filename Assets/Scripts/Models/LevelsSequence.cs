@@ -43,6 +43,6 @@ namespace Models
             }
         }
 
-        private static string LevelsSequencePath => $"{Utils.LevelsDataPath}/{ASSET_NAME}";
+        private static string LevelsSequencePath => Utils.GetResourcePath(ResourceType.Level, ASSET_NAME);
     }
 }

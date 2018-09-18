@@ -59,6 +59,6 @@
             }
         }
 
-        private static string ShipStatsPath => $"{Utils.ShipStatsDataPath}/{ASSET_NAME}";
+        private static string ShipStatsPath => Utils.GetResourcePath(ResourceType.Ship, ASSET_NAME);
     }
 }
