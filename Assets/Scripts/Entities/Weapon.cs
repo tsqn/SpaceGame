@@ -11,16 +11,31 @@
     /// </summary>
     public class Weapon : MonoBehaviour
     {
+        /// <summary>
+        /// Время до перезарядки.
+        /// </summary>
         private float _cooldown;
 
+        /// <summary>
+        /// Урон оружия.
+        /// </summary>
         [HideInInspector]
         public float Damage;
 
+        /// <summary>
+        /// Снаряд.
+        /// </summary>
         public Projectile Projectile;
 
+        /// <summary>
+        /// Скорость стрельбы.
+        /// </summary>
         [HideInInspector]
         public float ShootingSpeed;
 
+        /// <summary>
+        /// Выстрел.
+        /// </summary>
         public void Shoot()
         {
             if (!CanShoot())
@@ -29,17 +44,16 @@
             Projectile = ObjectsPoolsManager.Instance.SpawnFromPool(Projectile.Sid, transform.position,
                 Quaternion.Euler(90, transform.parent.rotation.eulerAngles.y, 0f)).GetComponent<Projectile>();
 
-
-            if (transform.parent.GetComponent<Player>())
-                Projectile.Target = typeof(Enemy);
-            else
-                Projectile.Target = typeof(Player);
+            Projectile.Target = transform.parent.GetComponent<Player>() ? typeof(Enemy) : typeof(Player);
 
             Projectile.Damage = Damage;
 
             Cooldown();
         }
 
+        /// <summary>
+        /// Можно ли стрелять.
+        /// </summary>
         private bool CanShoot()
         {
             return _cooldown <= 0;

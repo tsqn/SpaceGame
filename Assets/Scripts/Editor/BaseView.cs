@@ -39,7 +39,7 @@ namespace Editor
         /// <summary>
         /// Коллекция вьюмоделей для отображения.
         /// </summary>
-        protected List<ViewModel<T>> ViewModels;
+        public List<ViewModel<T>> ViewModels;
 
         /// <summary>
         /// Конструктор.

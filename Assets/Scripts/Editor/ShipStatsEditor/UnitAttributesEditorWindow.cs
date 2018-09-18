@@ -49,6 +49,11 @@
                 GUILayout.Width(_unitAttributesEditorEditorWindow.position.width),
                 GUILayout.Height(_unitAttributesEditorEditorWindow.position.height));
 
+            UnitAttributes.ShipBaseAttributes = 
+                UnitBaseAttributesView.ViewModels.Select(model => model.Model).ToList();
+            UnitAttributes.ShipAttributesMultipliers =
+                UnitAttributesMultipliersView.ViewModels.Select(model => model.Model).ToList();
+            
             UnitBaseAttributesView.Show();
             UnitAttributesMultipliersView.Show();
             EditorGUILayout.EndScrollView();
@@ -75,11 +80,6 @@
 
                 AssetDatabase.RenameAsset(oldFilePath, newFilePath);
             }
-
-            UnitAttributes.ShipBaseAttributes =
-                UnitAttributes.ShipBaseAttributes.OrderBy(stats => stats.Type).ToList();
-            UnitAttributes.ShipAttributesMultipliers =
-                UnitAttributes.ShipAttributesMultipliers.OrderBy(stats => stats.Type).ToList();
         }
     }
 }
